@@ -91,7 +91,6 @@
 		<url>http://hostname/git/resit</url>
 	</scm>
 	-->
-	-->
 	
 	<!-- Fecha de comienzo del proyecto -->
 	<inceptionYear>01-10-2012</inceptionYear>
@@ -281,4 +280,60 @@
 		</contributor>
 		 -->
 	</contributors>
+	
+	<!-- NOTA: maven3 elimina el fichero profiles.xml, en maven2 se dasaconseja el uso del fichero profiles.xml, dejamos los perfiles a nivel del pom -->
+	<profiles>
+		<profile>
+			<id>resit-local</id>
+			<activation>
+				<property>
+					<name>enviroment</name>
+					<value>resit-local</value>
+				</property>
+			</activation>
+			<properties>
+				<!-- Versión de Resit-->
+				<resit.version>${project.version}</resit.version>
+			</properties>
+		</profile>
+		<profile>
+			<id>resit-integration</id>
+			<activation>
+				<property>
+					<name>enviroment</name>
+					<value>resit-integration</value>
+				</property>
+			</activation>
+			<properties>
+				<!-- Versión de Resit-->
+				<resit.version>${project.version}</resit.version>
+			</properties>
+		</profile>
+		<profile>
+			<id>resit-preproduction</id>
+			<activation>
+				<property>
+					<name>enviroment</name>
+					<value>resit-preproduction</value>
+				</property>
+			</activation>
+			<properties>
+				<!-- Versión de Resit-->
+				<resit.version>${project.version}</resit.version>
+			</properties>
+		</profile>
+		<profile>
+			<id>resit-production</id>
+			<activation>
+				<property>
+					<name>enviroment</name>
+					<value>resit-production</value>
+				</property>
+			</activation>
+			<properties>
+				<!-- Versión de Resit-->
+				<resit.version>${project.version}</resit.version>
+			</properties>
+		</profile>
+	</profiles>
 </project>
