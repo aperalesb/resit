@@ -1,16 +1,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>es.resit</groupId>
+		<artifactId>resit</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>resit-front</groupId>
+	<packaging>war</packaging>
+	<name>Resit Front</name>
+	<description>Capa de integración con sistemas externos</description>
+	
 	<artifactId>resit-front</artifactId>
 	<properties>
 		<spring.version>3.1.0.RELEASE</spring.version>
 	</properties>
-	<parent>
-		<groupId>Resit</groupId>
-		<artifactId>Resit</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+	
 	<dependencies>
 		<dependency>
 			<groupId>resit-controller</groupId>
@@ -76,5 +83,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<packaging>war</packaging>
 </project>

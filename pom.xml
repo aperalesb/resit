@@ -50,10 +50,11 @@
     </properties>
 
 	<modules>
-		<module>./resit-core</module>
 		<module>./resit-controller</module>
-		<module>./resit-remote</module>
+		<module>./resit-core</module>
+		<module>./resit-front</module>
 		<module>./resit-integration</module>
+		<module>./resit-remote</module>
 	</modules>
 	
 	<!-- Gestión de incidencias 
