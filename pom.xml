@@ -1,0 +1,277 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>es.resit</groupId>
+	<artifactId>resit</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Resit</name>
+	<url>http://www.resit.com</url>
+
+	<!-- Vesiones -->
+    <properties>
+        <spring.version>3.1.0.RELEASE</spring.version>
+        <spring.data.jpa.version>1.0.0.M2</spring.data.jpa.version>
+        <spring-social.version>1.0.2.RELEASE</spring-social.version>
+        <spring-social-facebook.version>1.0.1</spring-social-facebook.version>
+        <spring.social-twitter.version>1.0.1</spring.social-twitter.version>
+        <spring.social-linkedin.version>1.0.0</spring.social-linkedin.version>
+        <commons-codec.version>1.5</commons-codec.version>
+        <httpclient.version>4.1.2</httpclient.version>
+        <cglib.version>2.2.2</cglib.version>
+        <hibernate.version>3.5.1-Final</hibernate.version>
+        <hibernate-validator.version>4.0.2.GA</hibernate-validator.version>
+        <hsqldb.version>1.8.0.10</hsqldb.version>
+        <h2database.version>1.3.160</h2database.version>
+        <bonecp.version>0.7.1.RELEASE</bonecp.version>
+        <servlet.version>2.5</servlet.version>
+        <javax.servlet.version>1.2</javax.servlet.version>
+        <jsp.api.version>2.1</jsp.api.version>
+        <struts2.version>2.2.1</struts2.version>
+        <javassist.version>3.8.0.GA</javassist.version>
+        <jstl.version>1.2</jstl.version>
+        <slf4j.version>1.6.1</slf4j.version>
+        <joda.time.version>1.5.2</joda.time.version>
+        <log4j.version>1.2.16</log4j.version>
+        
+        <!-- testing -->
+        <junit.version>4.9</junit.version>
+        <spring.junit.version>4.9</spring.junit.version>
+        
+        <!-- building -->
+        <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+        <maven-jetty-plugin.version>6.1.22</maven-jetty-plugin.version>
+        <maven-javadoc-plugin.version>2.6.1</maven-javadoc-plugin.version>
+        
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- GIT -->
+        <svn.username>resit</svn.username>
+        <svn.password>123resit321</svn.password>
+    </properties>
+
+	<modules>
+		<module>./resit-core</module>
+		<module>./resit-controller</module>
+		<module>./resit-remote</module>
+		<module>./resit-integration</module>
+	</modules>
+	
+	<!-- Gestión de incidencias 
+	<issueManagement>
+		<system>Jira Sevilla</system>
+		<url>http://sesrvctv1.indra.es/jira/browse/ISHARE</url>
+	</issueManagement>
+	-->
+	
+	<!-- Integración continua 
+	<ciManagement>
+		<system>Hudson Sevilla</system>
+		<url>http://sesrvctv1.indra.es/hudson/job/ishare/es.indra.share$ishare</url>
+	</ciManagement>
+	-->
+	
+	<!-- Información de la organización 
+	<organization>
+		<name>Indra Sistemas S.A.</name>
+		<url>http://www.indra.es</url>
+	</organization>
+	-->
+	
+	<!-- Integración con GIT 
+	<scm>
+		<connection>scm:git:http://hostname/git/resit</connection>
+		<developerConnection>scm:git:http://hostname/git/resit</developerConnection>
+		<url>http://hostname/git/resit</url>
+	</scm>
+	-->
+	-->
+	
+	<!-- Fecha de comienzo del proyecto -->
+	<inceptionYear>01-10-2012</inceptionYear>
+	
+	<!-- Repositorios maven disponibles -->
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<layout>default</layout>
+			<url>http://repo1.maven.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+            <id>org.springframework.maven.milestone</id>
+            <name>Spring Maven Milestone Repository</name>
+            <url>http://maven.springframework.org/milestone</url>
+        </repository>
+		<repository>
+			<id>JBoss Repo</id>
+			<url>http://repository.jboss.com/maven2</url>
+			<name>JBoss Repo</name>
+		</repository>
+		<repository>
+			<id>ibiblio mirror</id>
+			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
+		</repository>
+		<repository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Maven Repository Group</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+		</repository>
+		<!-- Repositorios locales 
+		<repository>
+			<id>nexus</id>
+			<name>Nexus</name>
+			<url>http://hostname/nexus/content/groups/public/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+        <repository>
+            <id>nexus-snapshots</id>
+            <name>Nexus (Snapshots)</name>
+            <url>http://hostname/nexus/content/groups/public-snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+        -->
+	</repositories>
+
+	<!-- Repositorios de plugins -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<name>Maven Plugin Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+	        	<enabled>false</enabled>
+			</snapshots>
+			<releases>
+	        	<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<!-- Configuración de compilación de componentes -->
+	<build>
+		<plugins>
+			<!-- Compilador Maven -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+				<version>2.3.2</version>
+			</plugin>
+
+			<!-- Javadoc -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.6.1</version>
+			</plugin>
+			
+			<!-- Publicación de versiones cerradas 
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<preparationGoals>clean install</preparationGoals>
+					<username>${git.username}</username>
+					<password>${git.password}</password>
+					<tagBase>http://hostname/git/resit</tagBase>
+				</configuration>
+			</plugin>
+			-->
+		</plugins>
+	</build>
+	
+	<!-- Repositorio de despliegue 
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <name>Nexus</name>
+            <url>http://hostname/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>Nexus snapshot</name>
+            <url>http://hostname/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+    -->
+	
+	<!-- Desarrolladores del proyecto -->
+	<developers>
+		<developer>
+			<id>aperalesb</id>
+			<name>Alberto Perales Beltrán</name>
+			<email>aperalesb@indra.es</email>
+			<organization>Indra S.A.</organization>
+			<organizationUrl>http://www.resit.com/</organizationUrl>
+			<roles>
+				<role>manager</role>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+		<developer>
+			<id>marinacp</id>
+			<name>Marina Cabello Pérez</name>
+			<email>marinacp18@gmail.com</email>
+			<organization>Resit S.L.</organization>
+			<organizationUrl>http://www.resit.com/</organizationUrl>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+		<developer>
+			<id>heavywizard</id>
+			<name>Amin Abu-Taleb</name>
+			<email>heavywizard@gmail.com</email>
+			<organization>Resit S.L.</organization>
+			<organizationUrl>http://www.resit.com/</organizationUrl>
+			<roles>
+				<role>manager</role>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+		<developer>
+			<id>aachaerandio</id>
+			<name>Araceli Achaerandio</name>
+			<email>araceli.achaerandio@gmail.com</email>
+			<organization>Resit S.L.</organization>
+			<organizationUrl>http://www.resit.com/</organizationUrl>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+	</developers>
+	
+	<!-- Colaboradores del proyecto -->
+	<contributors>
+		<!-- 
+		<contributor>
+			<name>Colaborador 1</name>
+		</contributor>
+		 -->
+	</contributors>
+</project>

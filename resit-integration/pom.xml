@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>es.resit</groupId>
+		<artifactId>resit</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>resit-integration</artifactId>
+	<packaging>jar</packaging>
+	<name>Resit Integration</name>
+	<description>Capa de integración con sistemas externos</description>
+
+	<!-- Integración continua 
+	<ciManagement>
+		<system>Jenkins</system>
+		<url>https://hostname/jenkins$ishare-alfresco</url>
+	</ciManagement>
+	-->
+
+	<dependencies>
+		<!-- Spring Social base -->
+		<dependency>
+		    <groupId>org.springframework.social</groupId>
+		    <artifactId>spring-social-core</artifactId>
+		    <version>${spring-social.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.social</groupId>
+		    <artifactId>spring-social-web</artifactId>
+		    <version>${spring-social.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.social</groupId>
+		    <artifactId>spring-social-test</artifactId>
+		    <version>${spring-social.version}</version>
+		</dependency>
+		
+		<!-- Clients dependencies -->
+		<!-- FACEBOOK 
+		<dependency>
+		    <groupId>org.springframework.social</groupId>
+		    <artifactId>spring-social-facebook</artifactId>
+		    <version>${spring-social-facebook.version}</version>
+		</dependency>-->
+		<!-- TWITTER 
+		<dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-twitter</artifactId>
+			<version>${spring.social-twitter.version}</version>
+		</dependency>-->
+		<!-- LINKEDIN 
+		<dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-linkedin</artifactId>
+			<version>${spring.social-linkedin.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec.version}</version>
+		</dependency>-->
+		<!-- others clients here -->
+		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-web</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <version>${httpclient.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>resit-integration</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
+				<configuration>
+					<links>
+						<link>http://java.sun.com/j2se/1.6.0/docs/api/</link>
+						<link>http://struts.apache.org/2.2.1/struts2-core/apidocs/</link>
+						<link>http://download.oracle.com/javaee/6/api/</link>
+						<link>http://static.springsource.org/spring/docs/3.0.x/javadoc-api/</link>
+						<link>http://static.springsource.org/spring-data/data-jpa/docs/1.0.0.M2/api/</link>
+					</links>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

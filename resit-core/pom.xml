@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>es.resit</groupId>
+		<artifactId>resit</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>resit-core</artifactId>
+	<packaging>jar</packaging>
+	<name>Resit Core</name>
+	<description>Núcleo base de Resit</description>
+
+	<!-- Integración continua 
+	<ciManagement>
+		<system>Jenkins</system>
+		<url>https://hostname/jenkins$ishare-alfresco</url>
+	</ciManagement>
+	-->
+
+	<dependencies>
+		
+	</dependencies>
+
+	<build>
+		<finalName>resit-core</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
+				<configuration>
+					<links>
+						<link>http://java.sun.com/j2se/1.6.0/docs/api/</link>
+						<link>http://struts.apache.org/2.2.1/struts2-core/apidocs/</link>
+						<link>http://download.oracle.com/javaee/6/api/</link>
+						<link>http://static.springsource.org/spring/docs/3.0.x/javadoc-api/</link>
+						<link>http://static.springsource.org/spring-data/data-jpa/docs/1.0.0.M2/api/</link>
+					</links>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
