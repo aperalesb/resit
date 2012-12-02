@@ -13,12 +13,11 @@
 	<name>Resit Controller</name>
 	<description>Spring for Controller tier</description>
 
-	<!-- Integración continua 
+	<!-- Integración continua --> 
 	<ciManagement>
 		<system>Jenkins</system>
-		<url>https://hostname/jenkins$ishare-alfresco</url>
+		<url>http://ci.4bytes.net/$resit-controller</url>
 	</ciManagement>
-	-->
 
 	<dependencies>
 		<!-- Spring 3 dependencies -->

@@ -12,7 +12,7 @@
 	<artifactId>resit-core</artifactId>
 	<packaging>jar</packaging>
 	<name>Resit Core</name>
-	<description>Núcleo base de Resit</description>
+	<description>Core tier for Resit</description>
 
 	<!-- Integración continua 
 	<ciManagement>

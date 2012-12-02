@@ -6,6 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Resit</name>
+	<description>Resit maven projects</description>
 	<url>http://www.resit.com</url>
 
 	<!-- Vesiones -->
@@ -42,11 +43,16 @@
         <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
         <maven-jetty-plugin.version>6.1.22</maven-jetty-plugin.version>
         <maven-javadoc-plugin.version>2.6.1</maven-javadoc-plugin.version>
+        <apache.tomcat>6.0.35</apache.tomcat>
+        <maven-clean-plugin.version>2.4.1</maven-clean-plugin.version>
         
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- GIT -->
         <svn.username>resit</svn.username>
         <svn.password>123resit321</svn.password>
+        
+        <!-- Resit -->
+        <resit.version>0.0.1-SNAPSHOT</resit.version>
     </properties>
 
 	<modules>

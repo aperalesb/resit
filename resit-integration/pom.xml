@@ -12,7 +12,7 @@
 	<artifactId>resit-integration</artifactId>
 	<packaging>jar</packaging>
 	<name>Resit Integration</name>
-	<description>Capa de integración con sistemas externos</description>
+	<description>Integration with external systems tier for Resit</description>
 
 	<!-- Integración continua 
 	<ciManagement>

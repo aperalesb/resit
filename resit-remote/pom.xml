@@ -11,8 +11,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>resit-remote</artifactId>
 	<packaging>war</packaging>
-	<name>Struts Spring Data JPA Hibernate HSQL</name>
-	<description>Ejemplo de uso de Struts, Spring Data, JPA, Hibernate, HSQL</description>
+	<name>Resit Remote</name>
+	<description>Data access for Resit (Now only an example using Struts, Spring Data, JPA, Hibernate, HSQL)</description>
 
 	<!-- Integración continua 
 	<ciManagement>

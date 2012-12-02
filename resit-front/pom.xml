@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
@@ -8,31 +9,33 @@
 	</parent>
 	
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>resit-front</groupId>
+	<artifactId>resit-front</artifactId>
 	<packaging>war</packaging>
 	<name>Resit Front</name>
-	<description>Capa de integración con sistemas externos</description>
+	<description>View tier for Resit</description>
 	
-	<artifactId>resit-front</artifactId>
-	<properties>
-		<spring.version>3.1.0.RELEASE</spring.version>
-	</properties>
+	<!-- Integración continua 
+	<ciManagement>
+		<system>Jenkins</system>
+		<url>https://hostname/jenkins$ishare-alfresco</url>
+	</ciManagement>
+	-->
 	
 	<dependencies>
 		<dependency>
 			<groupId>resit-controller</groupId>
 			<artifactId>resit-controller</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${resit.version}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>6.0.35</version>
+			<version>${apache.tomcat}</version>
 			<scope>provided</scope>
 		</dependency>
-
 	</dependencies>
+	
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<directory>${project.basedir}/war</directory>
@@ -53,7 +56,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
@@ -65,7 +68,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
-				<version>2.4.1</version>
+				<version>${maven-clean-plugin.version}</version>
 				<configuration>
 					<excludeDefaultDirectories>true</excludeDefaultDirectories>
 					<filesets>
