@@ -12,7 +12,7 @@
 	<!-- Vesiones -->
     <properties>
         <spring.version>3.1.0.RELEASE</spring.version>
-        <spring.data.jpa.version>1.0.0.M2</spring.data.jpa.version>
+        <spring.data.jpa.version>1.0.0.RELEASE</spring.data.jpa.version>
         <spring-social.version>1.0.2.RELEASE</spring-social.version>
         <spring-social-facebook.version>1.0.1</spring-social-facebook.version>
         <spring.social-twitter.version>1.0.1</spring.social-twitter.version>
@@ -62,7 +62,7 @@
 		<module>./resit-front</module>
 		<module>./resit-integration</module>
 		<module>./resit-remote</module>
-		<module>resit-services</module>
+		<module>./resit-services</module>
 	</modules>
 	
 	<!-- Gestión de incidencias 
@@ -98,80 +98,80 @@
 	<inceptionYear>01-10-2012</inceptionYear>
 	
 	<!-- Repositorios maven disponibles -->
-	<repositories>
-		<repository>
-			<id>central</id>
-			<name>Maven Repository Switchboard</name>
-			<layout>default</layout>
-			<url>http://repo1.maven.org/maven2</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-            <id>org.springframework.maven.milestone</id>
-            <name>Spring Maven Milestone Repository</name>
-            <url>http://maven.springframework.org/milestone</url>
-        </repository>
-		<repository>
-			<id>JBoss Repo</id>
-			<url>http://repository.jboss.com/maven2</url>
-			<name>JBoss Repo</name>
-		</repository>
-		<repository>
-			<id>ibiblio mirror</id>
-			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
-		</repository>
-		<repository>
-			<id>jboss-public-repository-group</id>
-			<name>JBoss Public Maven Repository Group</name>
-			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
-			<layout>default</layout>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>never</updatePolicy>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>never</updatePolicy>
-			</snapshots>
-		</repository>
-		<!-- Repositorios locales 
-		<repository>
-			<id>nexus</id>
-			<name>Nexus</name>
-			<url>http://hostname/nexus/content/groups/public/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-        <repository>
-            <id>nexus-snapshots</id>
-            <name>Nexus (Snapshots)</name>
-            <url>http://hostname/nexus/content/groups/public-snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-        -->
-	</repositories>
+<!-- 	<repositories> -->
+<!-- 		<repository> -->
+<!-- 			<id>central</id> -->
+<!-- 			<name>Maven Repository Switchboard</name> -->
+<!-- 			<layout>default</layout> -->
+<!-- 			<url>http://repo1.maven.org/maven2</url> -->
+<!-- 			<snapshots> -->
+<!-- 				<enabled>false</enabled> -->
+<!-- 			</snapshots> -->
+<!-- 		</repository> -->
+<!-- 		<repository> -->
+<!--             <id>org.springframework.maven.milestone</id> -->
+<!--             <name>Spring Maven Milestone Repository</name> -->
+<!--             <url>http://maven.springframework.org/milestone</url> -->
+<!--         </repository> -->
+<!-- 		<repository> -->
+<!-- 			<id>JBoss Repo</id> -->
+<!-- 			<url>http://repository.jboss.com/maven2</url> -->
+<!-- 			<name>JBoss Repo</name> -->
+<!-- 		</repository> -->
+<!-- 		<repository> -->
+<!-- 			<id>ibiblio mirror</id> -->
+<!-- 			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url> -->
+<!-- 		</repository> -->
+<!-- 		<repository> -->
+<!-- 			<id>jboss-public-repository-group</id> -->
+<!-- 			<name>JBoss Public Maven Repository Group</name> -->
+<!-- 			<url>https://repository.jboss.org/nexus/content/groups/public/</url> -->
+<!-- 			<layout>default</layout> -->
+<!-- 			<releases> -->
+<!-- 				<enabled>true</enabled> -->
+<!-- 				<updatePolicy>never</updatePolicy> -->
+<!-- 			</releases> -->
+<!-- 			<snapshots> -->
+<!-- 				<enabled>true</enabled> -->
+<!-- 				<updatePolicy>never</updatePolicy> -->
+<!-- 			</snapshots> -->
+<!-- 		</repository> -->
+ 		<!-- Repositorios locales  -->
+<!-- 		<repository> -->
+<!-- 			<id>nexus</id> -->
+<!-- 			<name>Nexus</name> -->
+<!-- 			<url>http://hostname/nexus/content/groups/public/</url> -->
+<!-- 			<snapshots> -->
+<!-- 				<enabled>false</enabled> -->
+<!-- 			</snapshots> -->
+<!-- 		</repository> -->
+<!--         <repository> -->
+<!--             <id>nexus-snapshots</id> -->
+<!--             <name>Nexus (Snapshots)</name> -->
+<!--             <url>http://hostname/nexus/content/groups/public-snapshots/</url> -->
+<!--             <snapshots> -->
+<!--                 <enabled>true</enabled> -->
+<!--                 <updatePolicy>always</updatePolicy> -->
+<!--             </snapshots> -->
+<!--         </repository> -->
+<!--         -->
+<!-- 	</repositories> -->
 
 	<!-- Repositorios de plugins -->
-	<pluginRepositories>
-		<pluginRepository>
-			<id>central</id>
-			<name>Maven Plugin Repository</name>
-			<url>http://repo1.maven.org/maven2</url>
-			<layout>default</layout>
-			<snapshots>
-	        	<enabled>false</enabled>
-			</snapshots>
-			<releases>
-	        	<updatePolicy>never</updatePolicy>
-			</releases>
-		</pluginRepository>
-	</pluginRepositories>
+<!-- 	<pluginRepositories> -->
+<!-- 		<pluginRepository> -->
+<!-- 			<id>central</id> -->
+<!-- 			<name>Maven Plugin Repository</name> -->
+<!-- 			<url>http://repo1.maven.org/maven2</url> -->
+<!-- 			<layout>default</layout> -->
+<!-- 			<snapshots> -->
+<!-- 	        	<enabled>false</enabled> -->
+<!-- 			</snapshots> -->
+<!-- 			<releases> -->
+<!-- 	        	<updatePolicy>never</updatePolicy> -->
+<!-- 			</releases> -->
+<!-- 		</pluginRepository> -->
+<!-- 	</pluginRepositories> -->
 
 	<!-- Configuración de compilación de componentes -->
 	<build>
