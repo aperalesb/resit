@@ -1,14 +1,14 @@
 package com.resit.core.publicInterface.beans;
 
 public class BarObj {
-	private Integer id;
+	private long id;
 	private String name;
 
-	public Integer getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

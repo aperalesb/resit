@@ -6,10 +6,10 @@ import com.resit.core.publicInterface.beans.BarObj;
 public class ServiceImpl implements ServiceInterface {
 
 	@Override
-	public BarObj fooMethod(String bar) {
+	public BarObj fooMethod(long bar) {
 		BarObj obj = new BarObj();
-		obj.setId(1);
-		obj.setName(bar);
+		obj.setId(bar);
+		obj.setName("name");
 		return obj;
 	}
 

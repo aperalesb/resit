@@ -4,6 +4,6 @@ import com.resit.core.publicInterface.beans.BarObj;
 
 public interface ServiceInterface {
 	
-	BarObj fooMethod(String bar);
+	BarObj fooMethod(long companyCode);
 
 }
