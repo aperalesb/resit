@@ -49,7 +49,7 @@
 
 	<servlet-mapping>
 		<servlet-name>application</servlet-name>
-		<url-pattern>/services/*</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 
 <!-- 	<filter> -->
