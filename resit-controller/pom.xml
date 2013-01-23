@@ -20,6 +20,12 @@
 	</ciManagement>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.resit</groupId>
+			<artifactId>resit-core</artifactId>
+			<version>${resit.version}</version>
+		</dependency>
+		
 		<!-- Spring 3 dependencies -->
 
 		<dependency>
