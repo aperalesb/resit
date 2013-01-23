@@ -14,6 +14,7 @@
         <spring.version>3.1.0.RELEASE</spring.version>
         <spring.data.jpa.version>1.0.0.RELEASE</spring.data.jpa.version>
         <spring-social.version>1.0.2.RELEASE</spring-social.version>
+        <spring.security.version>3.1.0.RELEASE</spring.security.version>
         <spring-social-facebook.version>1.0.1</spring-social-facebook.version>
         <spring.social-twitter.version>1.0.1</spring.social-twitter.version>
         <spring.social-linkedin.version>1.0.0</spring.social-linkedin.version>
@@ -276,11 +277,9 @@
 	
 	<!-- Colaboradores del proyecto -->
 	<contributors>
-		<!-- 
 		<contributor>
-			<name>Colaborador 1</name>
+			<name>Miriam Montañés</name>
 		</contributor>
-		 -->
 	</contributors>
 	
 	<!-- NOTA: maven3 elimina el fichero profiles.xml, en maven2 se dasaconseja el uso del fichero profiles.xml, dejamos los perfiles a nivel del pom -->
@@ -296,6 +295,14 @@
 			<properties>
 				<!-- Versión de Resit-->
 				<resit.version>${project.version}</resit.version>
+				
+				<!--  Software base --> 
+				<bd.driver>com.mysql.jdbc.Driver</bd.driver>
+				<bd.dialect>org.hibernate.dialect.MySQLDialect</bd.dialect>
+				<bd.url>jdbc:mysql://localhost:3306/resit-database</bd.url>
+				<bd.username>local</bd.username>
+				<bd.password>local</bd.password>
+				<hbase.home>C:\\cygwin\\usr\\local\\habase\\hbase-0.94.2</hbase.home>
 			</properties>
 		</profile>
 		<profile>
@@ -309,6 +316,13 @@
 			<properties>
 				<!-- Versión de Resit-->
 				<resit.version>${project.version}</resit.version>
+				
+				<bd.driver>com.mysql.jdbc.Driver</bd.driver>
+				<bd.dialect>org.hibernate.dialect.MySQLDialect</bd.dialect>
+				<bd.url>jdbc:mysql://integrationhost:3306/resit-database</bd.url>
+				<bd.username>integration</bd.username>
+				<bd.password>integration</bd.password>
+				<hbase.home>/usr/local/habase/hbase-0.94.2/</hbase.home>
 			</properties>
 		</profile>
 		<profile>
@@ -322,6 +336,13 @@
 			<properties>
 				<!-- Versión de Resit-->
 				<resit.version>${project.version}</resit.version>
+				
+				<bd.driver>com.mysql.jdbc.Driver</bd.driver>
+				<bd.dialect>org.hibernate.dialect.MySQLDialect</bd.dialect>
+				<bd.url>jdbc:mysql://preproductionhost:3306/resit-database</bd.url>
+				<bd.username>preproduction</bd.username>
+				<bd.password>preproduction</bd.password>
+				<hbase.home>/usr/local/habase/hbase-0.94.2/</hbase.home>
 			</properties>
 		</profile>
 		<profile>
@@ -335,6 +356,13 @@
 			<properties>
 				<!-- Versión de Resit-->
 				<resit.version>${project.version}</resit.version>
+				
+				<bd.driver>com.mysql.jdbc.Driver</bd.driver>
+				<bd.dialect>org.hibernate.dialect.MySQLDialect</bd.dialect>
+				<bd.url>jdbc:mysql://productionhost:3306/resit-database</bd.url>
+				<bd.username>production</bd.username>
+				<bd.password>production</bd.password>
+				<hbase.home>/usr/local/habase/hbase-0.94.2/</hbase.home>
 			</properties>
 		</profile>
 	</profiles>

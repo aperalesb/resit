@@ -36,7 +36,7 @@ public class UserController {
 		ModelAndView resultView = new ModelAndView("index");
 		LOG.info(String.format("Autenticando al usuario %s", eMail));
 		
-		if (eMail != null && password != null && eMail.equals("heavywizard@gmail.com") && password.equals("amin")){
+		if (eMail != null && password != null && eMail.equals("heavywizard@gmail.com") && password.equals("pass")){
 			//Fake result
 			resultView = new ModelAndView("home");
 			resultView.addObject("name", "Amin");

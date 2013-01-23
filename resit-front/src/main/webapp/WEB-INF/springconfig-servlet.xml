@@ -8,15 +8,11 @@
                            http://www.springframework.org/schema/context 
                            http://www.springframework.org/schema/context/spring-context.xsd
                            http://www.springframework.org/schema/mvc
-                           http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		                   http://www.springframework.org/schema/security 
+		                   http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-	<import resource="classpath:springconfig-context.xml"/>
-	 <context:annotation-config />
-    
-	<!-- En la siguiente declaración configuramos el prefijo y el sufijo del 
-		archivo .jsp (en este caso) al cual se va a redireccionar una vez que se 
-		ejecute el método del Controller. -->
-<!-- 	<bean -->
-<!-- 		class="org.springframework.web.servlet.view.InternalResourceViewResolver" -->
-<!-- 		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" /> -->
+	<import resource="classpath:springconfig-context.xml" />
+	<context:annotation-config />
+
 </beans>

@@ -23,7 +23,7 @@
 	
 	<dependencies>
 		<dependency>
-			<groupId>resit-controller</groupId>
+			<groupId>com.resit</groupId>
 			<artifactId>resit-controller</artifactId>
 			<version>${resit.version}</version>
 		</dependency>

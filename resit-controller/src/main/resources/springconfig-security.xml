@@ -1,26 +1,51 @@
-<beans:beans xmlns="http://www.springframework.org/schema/security"
-	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:sec="http://www.springframework.org/schema/security" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
                     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                     http://www.springframework.org/schema/security 
                     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
-
-	<bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy">
-		<filter-chain-map path-type="ant">
-			<filter-chain pattern="/webServices/**"
-				filters="
-           securityContextPersistenceFilterWithASCFalse,
-           basicAuthenticationFilter,
-           exceptionTranslationFilter,
-           filterSecurityInterceptor" />
-			<filter-chain pattern="/**"
-				filters="
-           securityContextPersistenceFilterWithASCTrue,
-           formLoginFilter,
-           exceptionTranslationFilter,
-           filterSecurityInterceptor" />
-		</filter-chain-map>
+	<bean id="springSecurityFilterChain" class="org.springframework.security.web.FilterChainProxy">
+		<sec:filter-chain-map path-type="ant">
+			<sec:filter-chain pattern="/**"
+				filters="contextPersistenceFilter,exceptionTranslationFilter,filterSecurityInterceptor" />
+		</sec:filter-chain-map>
 	</bean>
-</beans:beans>
+	
+	<sec:authentication-manager alias="authenticationManager">
+        <sec:authentication-provider ref="resitProvider" />
+    </sec:authentication-manager>
+
+    <bean id="resitProvider" class="com.resit.security.ResitAuthenticationProvider"/>
+	
+	<bean id="contextPersistenceFilter" class="org.springframework.security.web.context.SecurityContextPersistenceFilter" />
+
+    <bean id="exceptionTranslationFilter" class="org.springframework.security.web.access.ExceptionTranslationFilter">
+        <property name="authenticationEntryPoint" ref="preAuthenticatedProcessingFilterEntryPoint" />
+    </bean>
+
+    <bean id="preAuthenticatedProcessingFilterEntryPoint" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
+
+    <bean id="filterSecurityInterceptor" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+        <property name="authenticationManager" ref="authenticationManager" />
+        <property name="accessDecisionManager" ref="accessDecisionManager" />
+        <property name="securityMetadataSource">
+            <sec:filter-security-metadata-source>
+                <sec:intercept-url pattern="/**" access="ROL_USUARIO_LOGADO" />
+            </sec:filter-security-metadata-source>
+        </property>
+    </bean>
+    
+    <bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
+        <property name="allowIfAllAbstainDecisions" value="false" />
+        <property name="decisionVoters">
+            <list>
+                <bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter">
+                    <property name="rolePrefix" value="ROL_" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+</beans>
 
 <!-- http://static.springsource.org/spring-security/site/tutorial.html -->

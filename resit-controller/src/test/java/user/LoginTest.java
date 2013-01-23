@@ -17,7 +17,7 @@ public class LoginTest {
 		mav = userController.login("heavywizard@gmail.com", "", null, null);
 		assert mav.getViewName().equals("index");
 
-		mav = userController.login("heavywizard@gmail.com", "amin", null, null);
+		mav = userController.login("heavywizard@gmail.com", "pass", null, null);
 		assert mav.getViewName().equals("home");
 	}
 

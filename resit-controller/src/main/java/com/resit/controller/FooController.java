@@ -14,6 +14,6 @@ public class FooController {
 	
 	@RequestMapping("bar.do")
 	public ModelAndView bar(){
-		return new ModelAndView("bar.jsp");
+		return new ModelAndView("bar");
 	}
 }

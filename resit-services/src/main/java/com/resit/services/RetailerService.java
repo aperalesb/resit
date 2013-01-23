@@ -11,17 +11,21 @@ import com.resit.core.publicInterface.ServiceInterface;
 import com.resit.core.publicInterface.beans.BarObj;
 import com.resit.core.publicInterface.impl.ServiceImpl;
 
-@Controller
-public class FooService {
+/**
+ * Servicio publicado para el vendedor 
+ */
 
-	private static final Logger logger_c = Logger.getLogger(FooService.class);
+@Controller
+public class RetailerService {
+
+	private static final Logger LOG = Logger.getLogger(RetailerService.class);
 
 	ServiceInterface serviceInterface = new ServiceImpl();
 
-	@RequestMapping(value = "/{companyCode}/bar", method = RequestMethod.POST)
+	@RequestMapping(value = "/{companyCode}/saveReceipt", method = RequestMethod.POST)
 	@ResponseBody
-	 public BarObj bar(@PathVariable("companyCode") long companyCode) throws Exception {
-		logger_c.info("Getting code: " + companyCode);
+	 public BarObj saveReceipt(@PathVariable("companyCode") long companyCode) throws Exception {
+		LOG.debug("Getting request from : " + companyCode);
 
 	  return serviceInterface.fooMethod(companyCode);
 	 }
