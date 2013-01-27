@@ -10,8 +10,8 @@
 				filters="contextPersistenceFilter,exceptionTranslationFilter" />
 			<sec:filter-chain pattern="/login.do"
 				filters="contextPersistenceFilter,sessionProcessingFilter,exceptionTranslationFilter" />
-			<sec:filter-chain pattern="/**"
-				filters="contextPersistenceFilter,exceptionTranslationFilter,filterSecurityInterceptor" />
+<!-- 			<sec:filter-chain pattern="/**" -->
+<!-- 				filters="contextPersistenceFilter,exceptionTranslationFilter,filterSecurityInterceptor" /> -->
 		</sec:filter-chain-map>
 	</bean>
 
