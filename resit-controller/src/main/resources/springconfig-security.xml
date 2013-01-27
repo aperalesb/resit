@@ -6,12 +6,12 @@
                     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 	<bean id="springSecurityFilterChain" class="org.springframework.security.web.FilterChainProxy">
 		<sec:filter-chain-map path-type="ant">
-			<sec:filter-chain pattern="/index.jsp"
-				filters="contextPersistenceFilter,exceptionTranslationFilter" />
-			<sec:filter-chain pattern="/login.do"
-				filters="contextPersistenceFilter,sessionProcessingFilter,exceptionTranslationFilter" />
 			<sec:filter-chain pattern="/**"
-				filters="contextPersistenceFilter,exceptionTranslationFilter,filterSecurityInterceptor" />
+				filters="contextPersistenceFilter,exceptionTranslationFilter" />
+<!-- 			<sec:filter-chain pattern="/login.do" -->
+<!-- 				filters="contextPersistenceFilter,sessionProcessingFilter,exceptionTranslationFilter" /> -->
+<!-- 			<sec:filter-chain pattern="/**" -->
+<!-- 				filters="contextPersistenceFilter,exceptionTranslationFilter,filterSecurityInterceptor" /> -->
 		</sec:filter-chain-map>
 	</bean>
 
