@@ -8,8 +8,11 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<!-- Le styles -->
-<link href="css/bootstrap.css" rel="stylesheet">
+<!-- Estilos CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/resit-main.css" rel="stylesheet">
+
 <style type="text/css">
 body {
 	padding-top: 60px;
@@ -66,14 +69,13 @@ body {
 						<input class="span2" name="email" type="text" placeholder="Email">
 						<input class="span2" name="password" type="password"
 							placeholder="Password">
-						<button type="submit" class="btn">Sign in</button>
+						<button type="submit" class="btn"><i class="icon-signin"></i><span class="text-icon">Sign in</span></button>
 					</form>
 				</div>
 				<!--/.nav-collapse -->
 			</div>
 		</div>
 	</div>
-
 	<div class="container">
 
 		<!-- Main hero unit for a primary marketing message or call to action -->
@@ -89,37 +91,33 @@ body {
 		</div>
 
 		<!-- Example row of columns -->
-		<div class="row">
+		<div class="row index-benefits-iconlist center">
 			<div class="span3">
 				<h2>Heading 1</h2>
 				<p>
-					<img src="http://cdn1.iconfinder.com/data/icons/ball/256/leaf.png"
-						width="200" height="200" />
-				</p>
-				<p>
-					<a class="btn" href="#">View details &raquo;</a>
+					<img class="index-image-icon"
+						src="http://cdn1.iconfinder.com/data/icons/ball/256/leaf.png" />
 				</p>
 			</div>
 			<div class="span3">
 				<h2>Heading 2</h2>
 				<p>
-					<img src="http://cdn1.iconfinder.com/data/icons/icloud-style/512/iPhone_Cloud_Icon.png" width="200" height="200" />
-				</p>
-				<p>
-					<a class="btn" href="#">View details &raquo;</a>
+					<img class="index-image-icon"
+						src="http://cdn1.iconfinder.com/data/icons/icloud-style/512/iPhone_Cloud_Icon.png" />
 				</p>
 			</div>
 			<div class="span3">
 				<h2>Heading 3</h2>
-				<img src="http://cdn1.iconfinder.com/data/icons/Gifts/512/box3.png" width="200" height="200" />
-					<a class="btn" href="#">View details &raquo;</a>
+				<p>
+					<img class="index-image-icon"
+						src="http://cdn1.iconfinder.com/data/icons/Gifts/512/box3.png" />
 				</p>
 			</div>
 			<div class="span3">
 				<h2>Heading 4</h2>
-				<img src="http://cdn1.iconfinder.com/data/icons/Siena/256/currency_dollar%20blue.png" width="200" height="200" />
 				<p>
-					<a class="btn" href="#">View details &raquo;</a>
+					<img class="index-image-icon"
+						src="http://cdn1.iconfinder.com/data/icons/Siena/256/currency_dollar%20blue.png" />
 				</p>
 			</div>
 		</div>
@@ -159,8 +157,8 @@ body {
 			</div>
 			<div class="span4">
 				<h2>Twitter</h2>
-				<a class="twitter-timeline" href="https://twitter.com/Klaatubn"
-					data-widget-id="295629380993024001">Tweets por @Klaatubn</a>
+				<a class="twitter-timeline" href="https://twitter.com/search?q=nasa"
+					data-widget-id="297780099892264960">Tweets sobre "nasa"</a>
 				<script>
 					!function(d, s, id) {
 						var js, fjs = d.getElementsByTagName(s)[0];
@@ -175,11 +173,9 @@ body {
 
 			</div>
 		</div>
-		<footer>
-			<p>&copy; Resit Inc. 2013</p>
-		</footer>
-
 	</div>
+
+	<%@include file="/footer.jsp"%>
 	<!-- /container -->
 
 	<!-- Placed at the end of the document so the pages load faster -->
