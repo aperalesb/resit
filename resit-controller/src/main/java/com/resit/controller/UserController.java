@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.resit.common.ControllerParamConstants;
+import com.resit.common.constants.ControllerParamConstants;
 
 /**
  * @author amin
  */
 @Controller
 public class UserController {
-	
+
 	private final static Logger LOG = Logger.getLogger(UserController.class);
-	
+
 	/**
 	 * 
 	 * @param eMail
@@ -28,20 +28,12 @@ public class UserController {
 	 * @param request
 	 * @param response
 	 */
-	@RequestMapping(method = RequestMethod.POST, value = "/login.do")
-	public ModelAndView login(
-			@RequestParam(required = true, value = ControllerParamConstants.LOGIN_EMAIL) String eMail,
-			@RequestParam(required = true, value = ControllerParamConstants.LOGIN_PASSWORD) String password,
-			HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView resultView = new ModelAndView("index");
-		LOG.info(String.format("Autenticando al usuario %s", eMail));
+	@RequestMapping(method = RequestMethod.GET, value = "/home.do")
+	public ModelAndView loadHome(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView resultView = new ModelAndView("home");
 		
-		if (eMail != null && password != null && eMail.equals("heavywizard@gmail.com") && password.equals("pass")){
-			//Fake result
-			resultView = new ModelAndView("home");
-			resultView.addObject("name", "Amin");
-		}
-		
+		resultView.addObject("name", "Amin Abu-Taleb");
+
 		return resultView;
 	}
 }

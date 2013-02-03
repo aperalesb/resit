@@ -61,7 +61,7 @@ body {
 								<li><a href="#">One more separated link</a></li>
 							</ul></li>
 					</ul>
-					<form class="navbar-form pull-right" action="login.do"
+					<form class="navbar-form pull-right" action="home.do"
 						method="post">
 						<input class="span2" name="email" type="text" placeholder="Email">
 						<input class="span2" name="password" type="password"

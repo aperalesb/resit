@@ -1,4 +1,4 @@
-package com.resit.common;
+package com.resit.common.constants;
 
 
 public class ControllerParamConstants {
