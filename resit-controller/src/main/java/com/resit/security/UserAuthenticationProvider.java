@@ -7,6 +7,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -36,6 +37,9 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
         	Collection<GrantedAuthority> authorities = new HashSet<GrantedAuthority>(1);
         	authorities.add(new GrantedAuthorityImpl(ROLE_LOGGED));
         	authent = new UsernamePasswordAuthenticationToken(login, password, authorities);
+        }
+        else{
+        	throw new BadCredentialsException("Login or password incorrect.");
         }
         return authent;
     }

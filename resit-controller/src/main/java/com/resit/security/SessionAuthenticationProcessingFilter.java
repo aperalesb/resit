@@ -8,11 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.core.Constants;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
 import com.resit.common.constants.ControllerParamConstants;
@@ -37,6 +39,8 @@ public class SessionAuthenticationProcessingFilter extends
                 return request.getRequestURL().toString();
             }
         });
+		
+		setAuthenticationFailureHandler(new SimpleUrlAuthenticationFailureHandler("/index.jsp"));
 	}
 
 	@Override
@@ -53,6 +57,9 @@ public class SessionAuthenticationProcessingFilter extends
 			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(login, pass);
 			authenticate = (UsernamePasswordAuthenticationToken) this
 					.getAuthenticationManager().authenticate(token);
+		}
+		else{
+			throw new AccessDeniedException("Access Denied");
 		}
 		return authenticate;
 	}

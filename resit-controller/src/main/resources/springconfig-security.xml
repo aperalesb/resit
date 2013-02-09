@@ -4,45 +4,59 @@
                     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                     http://www.springframework.org/schema/security 
                     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<sec:global-method-security
+		secured-annotations="enabled" access-decision-manager-ref="accessDecisionManager"
+		jsr250-annotations="enabled" />
+
 	<bean id="springSecurityFilterChain" class="org.springframework.security.web.FilterChainProxy">
-		<sec:filter-chain-map path-type="ant">
-			<sec:filter-chain pattern="/index.jsp"
-				filters="none" />
-			<sec:filter-chain pattern="/css/**"
-				filters="none" />
-			<sec:filter-chain pattern="/js/**"
-				filters="none" />
-			<sec:filter-chain pattern="/img/**"
-				filters="none" />
-			<sec:filter-chain pattern="/public/*.jsp"
-				filters="contextPersistenceFilter,exceptionTranslationFilter" />
-			<sec:filter-chain pattern="/home.do"
-				filters="contextPersistenceFilter,sessionProcessingFilter,exceptionTranslationFilter" />
-			<sec:filter-chain pattern="/**"
-				filters="contextPersistenceFilter,sessionProcessingFilter,exceptionTranslationFilter,filterSecurityInterceptor" />
-		</sec:filter-chain-map>
+		<constructor-arg>
+			<list>
+				<sec:filter-chain pattern="/index.jsp" filters="none" />
+				<sec:filter-chain pattern="/css/**" filters="none" />
+				<sec:filter-chain pattern="/js/**" filters="none" />
+				<sec:filter-chain pattern="/img/**" filters="none" />
+				<sec:filter-chain pattern="/public/*.jsp"
+					filters="contextPersistenceFilter,exceptionTranslationFilter" />
+				<sec:filter-chain pattern="/home.do"
+					filters="contextPersistenceFilter,exceptionTranslationFilter,sessionProcessingFilter" />
+				<sec:filter-chain pattern="/**/**"
+					filters="contextPersistenceFilter,exceptionTranslationFilter,sessionProcessingFilter,filterSecurityInterceptor" />
+			</list>
+		</constructor-arg>
 	</bean>
 
 	<sec:authentication-manager alias="authenticationManager">
 		<sec:authentication-provider ref="resitProvider" />
 	</sec:authentication-manager>
 
-    <bean id="sessionProcessingFilter" class="com.resit.security.SessionAuthenticationProcessingFilter">
-        <property name="authenticationManager" ref="authenticationManager" />
-    </bean>
+	<bean id="sessionProcessingFilter"
+		class="com.resit.security.SessionAuthenticationProcessingFilter">
+		<property name="authenticationManager" ref="authenticationManager" />
+	</bean>
 
 	<bean id="resitProvider" class="com.resit.security.UserAuthenticationProvider" />
 
 	<bean id="contextPersistenceFilter"
 		class="org.springframework.security.web.context.SecurityContextPersistenceFilter" />
 
+	<!-- Traduce las excepciones a errores HTTP -->
 	<bean id="exceptionTranslationFilter"
 		class="org.springframework.security.web.access.ExceptionTranslationFilter">
-		<property name="authenticationEntryPoint" ref="preAuthenticatedProcessingFilterEntryPoint" />
+		<property name="authenticationEntryPoint" ref="authenticationProcessingFilterEntryPoint" />
+		<property name="accessDeniedHandler" ref="accessDeniedHandler" />
 	</bean>
 
-	<bean id="preAuthenticatedProcessingFilterEntryPoint"
-		class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
+	<bean id="accessDeniedHandler"
+		class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+		<property name="errorPage" value="/index.jsp" />
+	</bean>
+
+	<bean id="authenticationProcessingFilterEntryPoint"
+		class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		<property name="loginFormUrl" value="/login.jsp"/>
+		<property name="forceHttps" value="false" />
+	</bean>
 
 	<bean id="filterSecurityInterceptor"
 		class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
