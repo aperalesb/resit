@@ -13,6 +13,7 @@
 		<sec:intercept-url pattern="/js/**" access="permitAll" />
 		<sec:intercept-url pattern="/img/**" access="permitAll" />
 		<sec:intercept-url pattern="/public/**" access="permitAll" />
+		<sec:intercept-url pattern="/*.jsp" access="denyAll" />
 		<sec:intercept-url pattern="/**/**" access="isAuthenticated()" />
 		<sec:logout invalidate-session="true" logout-success-url="/index.jsp"
 			logout-url="/logout" />
@@ -44,7 +45,7 @@
 	<!-- We just actually need to set the default target url here -->
 	<bean id="customAuthenticationSuccessHandler"
 		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
-		<property name="defaultTargetUrl" value="/home.jsp" />
+		<property name="defaultTargetUrl" value="/home.do" />
 	</bean>
 
 	<bean id="resitProvider" class="com.resit.security.UserAuthenticationProvider" />
