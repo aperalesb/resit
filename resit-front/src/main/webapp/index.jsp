@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Bootstrap, from Twitter</title>
+<title>Resit</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -43,10 +43,10 @@ body {
 				<a class="btn btn-navbar" data-toggle="collapse"
 					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span>
-				</a> <a class="brand" href="#">Resit</a>
+				</a> <a class="brand" href="index.jsp">Resit</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li class="active"><a href="#">Home</a></li>
+						<li><a href="home.do">Home</a></li>
 						<li><a href="#about">About</a></li>
 						<li><a href="#contact">Contact</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -61,10 +61,9 @@ body {
 								<li><a href="#">One more separated link</a></li>
 							</ul></li>
 					</ul>
-					<form class="navbar-form pull-right" action="home.do"
-						method="post">
-						<input class="span2" name="email" type="text" placeholder="Email">
-						<input class="span2" name="password" type="password"
+					<form class="navbar-form pull-right" action="j_spring_security_check" method="post">
+						<input class="span2" name="j_username" type="text" placeholder="Email">
+						<input class="span2" name="j_password" type="password"
 							placeholder="Password">
 						<button type="submit" class="btn">Sign in</button>
 					</form>
@@ -83,6 +82,8 @@ body {
 				website. It includes a large callout called the hero unit and three
 				supporting pieces of content. Use it as a starting point to create
 				something more unique.</p>
+				
+					--------------<sec:authentication property="principal" />
 			<p>
 				<a class="btn btn-primary btn-large">Learn more &raquo;</a>
 			</p>
@@ -103,7 +104,9 @@ body {
 			<div class="span3">
 				<h2>Heading 2</h2>
 				<p>
-					<img src="http://cdn1.iconfinder.com/data/icons/icloud-style/512/iPhone_Cloud_Icon.png" width="200" height="200" />
+					<img
+						src="http://cdn1.iconfinder.com/data/icons/icloud-style/512/iPhone_Cloud_Icon.png"
+						width="200" height="200" />
 				</p>
 				<p>
 					<a class="btn" href="#">View details &raquo;</a>
@@ -111,13 +114,16 @@ body {
 			</div>
 			<div class="span3">
 				<h2>Heading 3</h2>
-				<img src="http://cdn1.iconfinder.com/data/icons/Gifts/512/box3.png" width="200" height="200" />
-					<a class="btn" href="#">View details &raquo;</a>
+				<img src="http://cdn1.iconfinder.com/data/icons/Gifts/512/box3.png"
+					width="200" height="200" /> <a class="btn" href="#">View
+					details &raquo;</a>
 				</p>
 			</div>
 			<div class="span3">
 				<h2>Heading 4</h2>
-				<img src="http://cdn1.iconfinder.com/data/icons/Siena/256/currency_dollar%20blue.png" width="200" height="200" />
+				<img
+					src="http://cdn1.iconfinder.com/data/icons/Siena/256/currency_dollar%20blue.png"
+					width="200" height="200" />
 				<p>
 					<a class="btn" href="#">View details &raquo;</a>
 				</p>

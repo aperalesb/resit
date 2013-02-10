@@ -50,7 +50,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
 	}
 
     public boolean supports(Class authentication) {
-        return true;
+    	return (UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication));
     }
 
 }
