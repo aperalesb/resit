@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -61,12 +62,24 @@ body {
 								<li><a href="#">One more separated link</a></li>
 							</ul></li>
 					</ul>
-					<form class="navbar-form pull-right" action="j_spring_security_check" method="post">
-						<input class="span2" name="j_username" type="text" placeholder="Email">
-						<input class="span2" name="j_password" type="password"
-							placeholder="Password">
-						<button type="submit" class="btn">Sign in</button>
-					</form>
+					<sec:authorize access="isAnonymous()">
+						<form class="navbar-form pull-right"
+							action="j_spring_security_check" method="post">
+							<input class="span2" name="j_username" type="text"
+								placeholder="Email"> <input class="span2"
+								name="j_password" type="password" placeholder="Password">
+							<button type="submit" class="btn">Sign in</button>
+						</form>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<form class="navbar-form pull-right"
+							action="logout" method="post">
+						<div class="navbar-text pull-right">
+							<sec:authentication property="principal" /> 
+							<button type="submit" class="btn">Logout</button>
+						</div>
+						</form>
+					</sec:authorize>
 				</div>
 				<!--/.nav-collapse -->
 			</div>
@@ -82,8 +95,6 @@ body {
 				website. It includes a large callout called the hero unit and three
 				supporting pieces of content. Use it as a starting point to create
 				something more unique.</p>
-				
-					--------------<sec:authentication property="principal" />
 			<p>
 				<a class="btn btn-primary btn-large">Learn more &raquo;</a>
 			</p>
