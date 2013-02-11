@@ -25,7 +25,7 @@ public class RetailerService {
 	@RequestMapping(value = "/{companyCode}/saveReceipt", method = RequestMethod.POST)
 	@ResponseBody
 	 public BarObj saveReceipt(@PathVariable("companyCode") long companyCode) throws Exception {
-		LOG.debug("Getting request from : " + companyCode);
+		LOG.info("Getting request from : " + companyCode);
 
 	  return serviceInterface.fooMethod(companyCode);
 	 }
