@@ -99,44 +99,12 @@
 	<inceptionYear>01-10-2012</inceptionYear>
 	
 	<!-- Repositorios maven disponibles -->
-<!-- 	<repositories> -->
-<!-- 		<repository> -->
-<!-- 			<id>central</id> -->
-<!-- 			<name>Maven Repository Switchboard</name> -->
-<!-- 			<layout>default</layout> -->
-<!-- 			<url>http://repo1.maven.org/maven2</url> -->
-<!-- 			<snapshots> -->
-<!-- 				<enabled>false</enabled> -->
-<!-- 			</snapshots> -->
-<!-- 		</repository> -->
-<!-- 		<repository> -->
-<!--             <id>org.springframework.maven.milestone</id> -->
-<!--             <name>Spring Maven Milestone Repository</name> -->
-<!--             <url>http://maven.springframework.org/milestone</url> -->
-<!--         </repository> -->
-<!-- 		<repository> -->
-<!-- 			<id>JBoss Repo</id> -->
-<!-- 			<url>http://repository.jboss.com/maven2</url> -->
-<!-- 			<name>JBoss Repo</name> -->
-<!-- 		</repository> -->
-<!-- 		<repository> -->
-<!-- 			<id>ibiblio mirror</id> -->
-<!-- 			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url> -->
-<!-- 		</repository> -->
-<!-- 		<repository> -->
-<!-- 			<id>jboss-public-repository-group</id> -->
-<!-- 			<name>JBoss Public Maven Repository Group</name> -->
-<!-- 			<url>https://repository.jboss.org/nexus/content/groups/public/</url> -->
-<!-- 			<layout>default</layout> -->
-<!-- 			<releases> -->
-<!-- 				<enabled>true</enabled> -->
-<!-- 				<updatePolicy>never</updatePolicy> -->
-<!-- 			</releases> -->
-<!-- 			<snapshots> -->
-<!-- 				<enabled>true</enabled> -->
-<!-- 				<updatePolicy>never</updatePolicy> -->
-<!-- 			</snapshots> -->
-<!-- 		</repository> -->
+	<repositories>
+		<repository>
+			<id>spring-milestone</id>
+			<name>Spring Maven SNAPSHOT Repository</name>
+			<url>http://repo.springframework.org/milestone</url>
+		</repository>
  		<!-- Repositorios locales  -->
 <!-- 		<repository> -->
 <!-- 			<id>nexus</id> -->
@@ -156,7 +124,7 @@
 <!--             </snapshots> -->
 <!--         </repository> -->
 <!--         -->
-<!-- 	</repositories> -->
+		</repositories>
 
 	<!-- Repositorios de plugins -->
 <!-- 	<pluginRepositories> -->
