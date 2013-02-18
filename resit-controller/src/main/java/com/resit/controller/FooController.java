@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-@RequestMapping("/foo")
 public class FooController {
 	
 	@RequestMapping("bar.do")

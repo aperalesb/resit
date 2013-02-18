@@ -4,60 +4,66 @@
                     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                     http://www.springframework.org/schema/security 
                     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
-	<bean id="springSecurityFilterChain" class="org.springframework.security.web.FilterChainProxy">
-		<sec:filter-chain-map path-type="ant">
-			<sec:filter-chain pattern="/**"
-				filters="contextPersistenceFilter,exceptionTranslationFilter" />
-<!-- 			<sec:filter-chain pattern="/login.do" -->
-<!-- 				filters="contextPersistenceFilter,sessionProcessingFilter,exceptionTranslationFilter" /> -->
-<!-- 			<sec:filter-chain pattern="/**" -->
-<!-- 				filters="contextPersistenceFilter,exceptionTranslationFilter,filterSecurityInterceptor" /> -->
-		</sec:filter-chain-map>
+
+	<sec:http auto-config="false" use-expressions="true"
+		entry-point-ref="authenticationProcessingFilterEntryPoint">
+  		<sec:access-denied-handler ref="accessDeniedHandler" />
+  		
+		<sec:intercept-url pattern="/index.jsp" access="permitAll" />
+		<sec:intercept-url pattern="/css/**" access="permitAll" />
+		<sec:intercept-url pattern="/js/**" access="permitAll" />
+		<sec:intercept-url pattern="/img/**" access="permitAll" />
+		<sec:intercept-url pattern="/public/**" access="permitAll" />
+		<sec:intercept-url pattern="/error/**" access="permitAll" />
+		<sec:intercept-url pattern="/*.jsp" access="denyAll" />
+		<sec:intercept-url pattern="/**/**" access="isAuthenticated()" />
+		<sec:logout invalidate-session="true" logout-success-url="/index.jsp"
+			logout-url="/logout" />
+		<sec:custom-filter ref="authenticationFilter"
+			position="FORM_LOGIN_FILTER" />
+	</sec:http>
+
+	<!-- Traduce las excepciones a errores HTTP -->
+	<bean id="accessDeniedHandler"
+		class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+		<property name="errorPage" value="/error/404.jsp" />
 	</bean>
 
-	<sec:authentication-manager alias="authenticationManager">
+	<sec:authentication-manager alias="customAuthenticationManager">
 		<sec:authentication-provider ref="resitProvider" />
 	</sec:authentication-manager>
 
-    <bean id="sessionProcessingFilter" class="com.resit.security.SessionAuthenticationProcessingFilter">
-        <property name="authenticationManager" ref="authenticationManager" />
-    </bean>
+	<!-- Custom filter for username and password. The real customization is 
+		done in the customAthenticationManager -->
 
-	<bean id="resitProvider" class="com.resit.security.ResitAuthenticationProvider" />
-
-	<bean id="contextPersistenceFilter"
-		class="org.springframework.security.web.context.SecurityContextPersistenceFilter" />
-
-	<bean id="exceptionTranslationFilter"
-		class="org.springframework.security.web.access.ExceptionTranslationFilter">
-		<property name="authenticationEntryPoint" ref="preAuthenticatedProcessingFilterEntryPoint" />
+	<bean id="authenticationFilter"
+		class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
+		<property name="authenticationManager" ref="customAuthenticationManager" />
+		<property name="authenticationFailureHandler" ref="customAuthenticationFailureHandler" />
+		<property name="authenticationSuccessHandler" ref="customAuthenticationSuccessHandler" />
 	</bean>
 
-	<bean id="preAuthenticatedProcessingFilterEntryPoint"
-		class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
+	<!-- We just actually need to set the default failure url here -->
 
-	<bean id="filterSecurityInterceptor"
-		class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
-		<property name="authenticationManager" ref="authenticationManager" />
-		<property name="accessDecisionManager" ref="accessDecisionManager" />
-		<property name="securityMetadataSource">
-			<sec:filter-security-metadata-source>
-				<sec:intercept-url pattern="/**" access="ROLE_LOGGED" />
-			</sec:filter-security-metadata-source>
-		</property>
+	<bean id="customAuthenticationFailureHandler"
+		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+		<property name="defaultFailureUrl" value="/index.jsp?error=true" />
 	</bean>
 
-	<bean id="accessDecisionManager"
-		class="org.springframework.security.access.vote.AffirmativeBased">
-		<property name="allowIfAllAbstainDecisions" value="false" />
-		<property name="decisionVoters">
-			<list>
-				<bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter">
-					<property name="rolePrefix" value="ROLE_" />
-				</bean>
-			</list>
-		</property>
+	<!-- We just actually need to set the default target url here -->
+	<bean id="customAuthenticationSuccessHandler"
+		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
+		<property name="defaultTargetUrl" value="/home.do" />
 	</bean>
+
+	<bean id="resitProvider" class="com.resit.security.UserAuthenticationProvider" />
+
+	<bean id="authenticationProcessingFilterEntryPoint"
+		class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		<property name="loginFormUrl" value="/index.jsp" />
+		<property name="forceHttps" value="false" />
+	</bean>
+
 </beans>
 
 <!-- http://static.springsource.org/spring-security/site/tutorial.html -->

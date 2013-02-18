@@ -1,9 +1,11 @@
 package com.resit.core.publicInterface;
 
-import com.resit.core.publicInterface.beans.BarObj;
+import com.resit.core.publicInterface.beans.Receipt;
 
 public interface ServiceInterface {
 	
-	BarObj fooMethod(long companyCode);
+	Receipt saveReceipt(String companyCode);
+
+	Receipt getReceipt(String companyCode, String receiptCode);
 
 }
