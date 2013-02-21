@@ -18,6 +18,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
 
 import com.resit.controller.UserController;
+import com.resit.security.constants.ConstantsRole;
 
 public class UserAuthenticationProvider implements AuthenticationProvider {
 
@@ -26,8 +27,6 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
      */
 	private final static Logger LOG = Logger.getLogger(UserAuthenticationProvider.class);
 
-    private static final String ROLE_LOGGED = "ROLE_LOGGED";
-
     @SuppressWarnings("deprecation")
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         Authentication authent = null;
@@ -35,7 +34,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
         String password = authentication.getCredentials().toString();
         if (checkLogin(login, password)){
         	Collection<GrantedAuthority> authorities = new HashSet<GrantedAuthority>(1);
-        	authorities.add(new GrantedAuthorityImpl(ROLE_LOGGED));
+        	authorities.add(new GrantedAuthorityImpl(ConstantsRole.ROLE_LOGGED));
         	authent = new UsernamePasswordAuthenticationToken(login, password, authorities);
         }
         else{

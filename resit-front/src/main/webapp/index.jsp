@@ -72,15 +72,23 @@ body {
 								placeholder="Email"> <input class="span2"
 								name="j_password" type="password" placeholder="Password">
 							<button type="submit" class="btn">Sign in</button>
+							<div class="row">
+								<div class="right">
+									<label class="forCheckbox" for='_spring_security_remember_me'>
+										Remember me: <input type='checkbox'
+										name='_spring_security_remember_me' />
+									</label>
+								</div>
+								<div class="cl"></div>
+							</div>
 						</form>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
-						<form class="navbar-form pull-right"
-							action="logout" method="post">
-						<div class="navbar-text pull-right">
-							<sec:authentication property="principal" /> 
-							<button type="submit" class="btn">Logout</button>
-						</div>
+						<form class="navbar-form pull-right" action="logout" method="post">
+							<div class="navbar-text pull-right">
+								<sec:authentication property="principal" />
+								<button type="submit" class="btn">Logout</button>
+							</div>
 						</form>
 					</sec:authorize>
 				</div>

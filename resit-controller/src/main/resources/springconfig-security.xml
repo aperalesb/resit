@@ -7,8 +7,8 @@
 
 	<sec:http auto-config="false" use-expressions="true"
 		entry-point-ref="authenticationProcessingFilterEntryPoint">
-  		<sec:access-denied-handler ref="accessDeniedHandler" />
-  		
+		<sec:access-denied-handler ref="accessDeniedHandler" />
+
 		<sec:intercept-url pattern="/index.jsp" access="permitAll" />
 		<sec:intercept-url pattern="/css/**" access="permitAll" />
 		<sec:intercept-url pattern="/js/**" access="permitAll" />
@@ -21,7 +21,14 @@
 			logout-url="/logout" />
 		<sec:custom-filter ref="authenticationFilter"
 			position="FORM_LOGIN_FILTER" />
+
+		<!-- remember me -->
+		<sec:remember-me key="rememberMeKey" user-service-ref="userDetailsService" />
 	</sec:http>
+
+	<bean id="userDetailsService" name="userAuthenticationProvider"
+		class="com.resit.security.AuthenticationUserDetailsGetter">
+	</bean>
 
 	<!-- Traduce las excepciones a errores HTTP -->
 	<bean id="accessDeniedHandler"
