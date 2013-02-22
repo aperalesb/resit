@@ -6,7 +6,9 @@
     <!-- this persistence unit is for the web application -->
     <persistence-unit name="springJpaPersistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>com.resit.remote.jpa.model.Person</class>
+		<class>com.resit.remote.jpa.model.User</class>
+		<class>com.resit.remote.jpa.model.Profile</class>
+		<class>com.resit.remote.jpa.model.Company</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
             <!-- 

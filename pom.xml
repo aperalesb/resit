@@ -12,7 +12,9 @@
 	<!-- Vesiones -->
     <properties>
         <spring.version>3.1.0.RELEASE</spring.version>
-        <spring.data.jpa.version>1.0.0.RELEASE</spring.data.jpa.version>
+        <spring.data.jpa.version>1.2.0.RELEASE</spring.data.jpa.version>
+        <spring.data.hadoop.version>1.0.0.RC2</spring.data.hadoop.version>
+        <spring.data.hbase.version>0.90.2</spring.data.hbase.version>
         <spring-social.version>1.0.2.RELEASE</spring-social.version>
         <spring.security.version>3.1.0.RELEASE</spring.security.version>
         <spring-social-facebook.version>1.0.1</spring-social-facebook.version>
@@ -39,7 +41,7 @@
         
         <!-- testing -->
         <junit.version>4.9</junit.version>
-        <spring.junit.version>4.9</spring.junit.version>
+        <spring.junit.version>2.5</spring.junit.version>
         
         <!-- building -->
         <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
