@@ -3,8 +3,8 @@ package com.resit.remote.hbase;
 import org.apache.hadoop.hbase.client.HTableInterface;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.util.Bytes;
-//import org.junit.Test;
-//import org.junit.runner.RunWith;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.hadoop.hbase.HbaseTemplate;
@@ -12,8 +12,8 @@ import org.springframework.data.hadoop.hbase.TableCallback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-//@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration()
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations={"WordCountWorkflowTest-context.xml"})
 public class WordCountWorkflowTest {
 
     @Autowired
@@ -22,7 +22,7 @@ public class WordCountWorkflowTest {
     @Autowired
     private HbaseTemplate hbaseTemplate;
 
-    /*@Test
+    @Test
     public void testWorkflowNS() throws Exception {
         if (hbaseTemplate == null) {
             throw new NullPointerException("template null!");
@@ -33,12 +33,12 @@ public class WordCountWorkflowTest {
         itc = new InnerTableCallback("Anotherstring", 23);
         // Here the HBase insert fails
         hbaseTemplate.execute("Wordcount", itc);
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void testWorkflowNSSucess() throws Exception {
         System.out.println("done");
-    }*/
+    }
 
     /**
      * This is a Inner class providing access to the HBase Table to store the

@@ -40,7 +40,7 @@
         <jackson.mapper.version>1.5.6</jackson.mapper.version>
         
         <!-- testing -->
-        <junit.version>4.9</junit.version>
+        <junit.version>4.4</junit.version> <!-- Ojo, con versiones superiores a la 4.4, no localiza el fichero de contexto -->
         <spring.junit.version>2.5</spring.junit.version>
         
         <!-- building -->
