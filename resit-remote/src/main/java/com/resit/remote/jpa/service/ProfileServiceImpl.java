@@ -19,7 +19,7 @@ import com.resit.remote.jpa.repository.ProfileRepository;
  * @author aperalesb
  *
  */
-@Service("userService")
+@Service("profileService")
 public class ProfileServiceImpl implements ProfileService {
 	@Autowired
 	 private ProfileRepository profileRepository;

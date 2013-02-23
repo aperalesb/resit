@@ -20,7 +20,7 @@ import com.resit.remote.jpa.repository.UserRepository;
  * @author aperalesb
  *
  */
-@Service("userService")
+@Service("companyService")
 public class CompanyServiceImpl implements UserService {
 	@Autowired
 	 private UserRepository userRepository;
