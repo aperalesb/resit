@@ -18,16 +18,29 @@
 		<sec:intercept-url pattern="/*.jsp" access="denyAll" />
 		<sec:intercept-url pattern="/**/**" access="isAuthenticated()" />
 		<sec:logout invalidate-session="true" logout-success-url="/index.jsp"
-			logout-url="/logout" />
-		<sec:custom-filter ref="authenticationFilter"
-			position="FORM_LOGIN_FILTER" />
-
-		<!-- remember me -->
-		<sec:remember-me key="rememberMeKey" user-service-ref="userDetailsService" />
+			logout-url="/logout" delete-cookies="JSESSIONID,ResitCookie"/>
+		<sec:custom-filter ref="authenticationFilter" position="FORM_LOGIN_FILTER" />
+		<sec:custom-filter ref="rememberMeFilter" position="REMEMBER_ME_FILTER" />
+<!-- 		<sec:remember-me key="myAppKey" token-validity-seconds="864000" /> -->
 	</sec:http>
 
-	<bean id="userDetailsService" name="userAuthenticationProvider"
-		class="com.resit.security.AuthenticationUserDetailsGetter">
+	<bean id="userDetailsService" class="com.resit.security.AuthenticationUserDetailsGetter">
+	</bean>
+
+	<!-- Remember-me configuration -->
+	<bean id="rememberMeFilter" class="org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter">
+		<property name="authenticationManager" ref="customAuthenticationManager" />
+		<property name="rememberMeServices" ref="rememberMeServices" />
+	</bean>
+
+	<bean id="rememberMeServices" class="org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices">
+		<property name="userDetailsService" ref="userDetailsService" />
+    <property name="cookieName" value="ResitCookie" />
+		<property name="key" value="springRocks" />
+	</bean>
+
+	<bean id="rememberMeAuthenticationProvider" class="org.springframework.security.authentication.RememberMeAuthenticationProvider">
+		<property name="key" value="springRocks" />
 	</bean>
 
 	<!-- Traduce las excepciones a errores HTTP -->
@@ -37,7 +50,8 @@
 	</bean>
 
 	<sec:authentication-manager alias="customAuthenticationManager">
-		<sec:authentication-provider ref="resitProvider" />
+		<sec:authentication-provider ref="rememberMeAuthenticationProvider" />
+		<sec:authentication-provider ref="resitProvider"/>
 	</sec:authentication-manager>
 
 	<!-- Custom filter for username and password. The real customization is 
@@ -45,6 +59,7 @@
 
 	<bean id="authenticationFilter"
 		class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
+		<property name="rememberMeServices" ref="rememberMeServices" />
 		<property name="authenticationManager" ref="customAuthenticationManager" />
 		<property name="authenticationFailureHandler" ref="customAuthenticationFailureHandler" />
 		<property name="authenticationSuccessHandler" ref="customAuthenticationSuccessHandler" />
