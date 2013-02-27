@@ -55,6 +55,11 @@
         
         <!-- Resit -->
         <resit.version>0.0.1-SNAPSHOT</resit.version>
+        
+        <!-- Security -->
+        <cookie.name>ResitCookie</cookie.name>
+        <cookie.validity>432000</cookie.validity>
+        <cookie.key>ResitCookieKey</cookie.key>
     </properties>
 
 	<modules>

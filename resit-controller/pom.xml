@@ -19,6 +19,15 @@
 		<url>http://ci.4bytes.net/$resit-controller</url>
 	</ciManagement>
 
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+	
 	<dependencies>
 		<dependency>
 			<groupId>com.resit</groupId>
