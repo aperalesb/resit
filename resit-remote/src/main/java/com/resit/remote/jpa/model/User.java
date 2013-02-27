@@ -5,8 +5,10 @@ package com.resit.remote.jpa.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -23,11 +25,19 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @NamedQuery(name="users.findByUserId", query="from Users where ID_CON = :id")
 public class User extends AbstractPersistable<Long> implements Serializable  {
 	private static final long serialVersionUID = 3697535594187479699L;
+	@Id
+	@Column(name="ID_CON")
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@Column(name="NAME")
 	private String name;
+	@Column(name="SURMNAME")
 	private String surname;
+	@Column(name="IDENTIFICATION")
 	private String identification;
+	@Column(name="SEX")
 	private String sex;
+	@Column(name="AGE")
 	private Integer age;
 	
 	@Override

@@ -6,7 +6,11 @@ package com.resit.remote.jpa.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
@@ -22,11 +26,19 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @NamedQuery(name="company.findByCompanyId", query="from Company where ID_COM = :id")
 public class Company extends AbstractPersistable<Long> implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
+	@Id
+	@Column(name="ID_CON")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@Column(name="IDENTIFICATION")
 	private String identification;
+	@Column(name="NAME")
 	private String name;
+	@Column(name="ADDRESS")
 	private String address;
+	@Column(name="PHONE")
 	private Long phone;
+	@Column(name="RETURN_PERIOD")
 	private Date return_period;
 	
 	@Override

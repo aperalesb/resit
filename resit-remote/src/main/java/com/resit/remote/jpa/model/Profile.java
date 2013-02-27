@@ -5,7 +5,11 @@ package com.resit.remote.jpa.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
@@ -21,7 +25,11 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @NamedQuery(name="profile.findByProfileId", query="from Profile where ID_PRO = :id")
 public class Profile extends AbstractPersistable<Long> implements Serializable {
 	private static final long serialVersionUID = 4161692985463817989L;
+	@Id
+	@Column(name="ID_PRO")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@Column(name="NAME")
 	private String name;
 	
 	@Override
