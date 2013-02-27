@@ -16,6 +16,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.resit.controller.UserController;
 import com.resit.security.constants.ConstantsRole;
@@ -26,6 +28,8 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
      * Log.
      */
 	private final static Logger LOG = Logger.getLogger(UserAuthenticationProvider.class);
+	
+	private UserDetailsService userDetailsService;
 
     @SuppressWarnings("deprecation")
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -35,7 +39,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
         if (checkLogin(login, password)){
         	Collection<GrantedAuthority> authorities = new HashSet<GrantedAuthority>(1);
         	authorities.add(new GrantedAuthorityImpl(ConstantsRole.ROLE_LOGGED));
-        	authent = new UsernamePasswordAuthenticationToken(login, password, authorities);
+        	authent = new UsernamePasswordAuthenticationToken(userDetailsService.loadUserByUsername(login), password, authorities);
         }
         else{
         	throw new BadCredentialsException("Login or password incorrect.");
@@ -51,5 +55,14 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
     public boolean supports(Class authentication) {
     	return (UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication));
     }
+
+	public UserDetailsService getUserDetailsService() {
+		return userDetailsService;
+	}
+
+	public void setUserDetailsService(UserDetailsService userDetailsService) {
+		this.userDetailsService = userDetailsService;
+	}
+
 
 }

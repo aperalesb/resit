@@ -78,7 +78,9 @@
 		<property name="defaultTargetUrl" value="/home.do" />
 	</bean>
 
-	<bean id="resitProvider" class="com.resit.security.UserAuthenticationProvider" />
+	<bean id="resitProvider" class="com.resit.security.UserAuthenticationProvider" >
+		<property name="userDetailsService" ref="userDetailsService"/>
+	</bean>
 
 	<bean id="authenticationProcessingFilterEntryPoint"
 		class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">

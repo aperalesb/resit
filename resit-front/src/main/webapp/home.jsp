@@ -65,7 +65,7 @@ body {
 					<sec:authorize access="isAuthenticated()">
 						<form class="navbar-form pull-right" action="logout" method="post">
 							<div class="navbar-text pull-right">
-								<sec:authentication property="principal" />
+								<sec:authentication property="principal.login" />
 								<button type="submit" class="btn">Logout</button>
 							</div>
 						</form>
