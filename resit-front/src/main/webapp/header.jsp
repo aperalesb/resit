@@ -9,7 +9,7 @@
 					<ul class="nav">
 						<li><a href="<%=request.getContextPath()%>/home.do">Home</a></li>
 						<li><a href="#about">About</a></li>
-						<li><a href="<%=request.getContextPath()%>/public/support.jsp">Contact</a></li>
+						<li><a href="<%=request.getContextPath()%>/public/support.jsp">Help</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 							<ul class="dropdown-menu">
@@ -28,7 +28,7 @@
 							<input class="span2" name="j_username" type="text"
 								placeholder="Email"> <input class="span2"
 								name="j_password" type="password" placeholder="Password">
-							<button type="submit" class="btn">Sign in</button>
+							<button type="submit" class="btn"><i class="icon-signin">&nbsp;Sign in</i></button>
 							<div class="row">
 								<div class="right">
 									<label class="forCheckbox" for='_spring_security_remember_me'>
@@ -44,7 +44,7 @@
 						<form class="navbar-form pull-right" action="logout" method="post">
 							<div class="navbar-text pull-right">
 								<sec:authentication property="principal.login" />
-								<button type="submit" class="btn">Logout</button>
+								<button type="submit" class="btn"><i class="icon-signout">&nbsp;Sign out</i></button>
 							</div>
 						</form>
 					</sec:authorize>
