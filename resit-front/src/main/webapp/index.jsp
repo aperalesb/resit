@@ -10,9 +10,9 @@
 <meta name="author" content="">
 
 <!-- Estilos CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/resit-main.css" rel="stylesheet">
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/font-awesome.min.css" rel="stylesheet">
+<link href="resources/css/resit-main.css" rel="stylesheet">
 
 <style type="text/css">
 body {
@@ -20,7 +20,7 @@ body {
 	padding-bottom: 40px;
 }
 </style>
-<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="resources/css/bootstrap-responsive.css" rel="stylesheet">
 
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -200,8 +200,8 @@ body {
 	<!-- /container -->
 
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="resources/js/jquery.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
 
 </body>
 </html>
