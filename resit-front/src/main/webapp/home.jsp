@@ -10,7 +10,9 @@
 <meta name="author" content="">
 
 <!-- Le styles -->
-<link href="resources/css/bootstrap.css" rel="stylesheet">
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/font-awesome.min.css" rel="stylesheet">
+<link href="resources/css/resit-main.css" rel="stylesheet">
 <style type="text/css">
 body {
 	padding-top: 60px;
@@ -37,44 +39,7 @@ body {
 </head>
 
 <body>
-
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="btn btn-navbar" data-toggle="collapse"
-					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span>
-				</a> <a class="brand" href="index.jsp">Resit</a>
-				<div class="nav-collapse collapse">
-					<ul class="nav">
-						<li class="active"><a href="home.do">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#contact">Contact</a></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="bar.do">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li class="divider"></li>
-								<li class="nav-header">Nav header</li>
-								<li><a href="#">Separated link</a></li>
-								<li><a href="#">One more separated link</a></li>
-							</ul></li>
-					</ul>
-					<sec:authorize access="isAuthenticated()">
-						<form class="navbar-form pull-right" action="logout" method="post">
-							<div class="navbar-text pull-right">
-								<sec:authentication property="principal.login" />
-								<button type="submit" class="btn">Logout</button>
-							</div>
-						</form>
-					</sec:authorize>
-				</div>
-				<!--/.nav-collapse -->
-			</div>
-		</div>
-	</div>
+	<%@include file="header.jsp"%>
 
 	<div class="container">
 
@@ -92,16 +57,13 @@ body {
 
 		<hr>
 
-		<footer>
-			<p>&copy; Resit Inc. 2012</p>
-		</footer>
-
 	</div>
 	<!-- /container -->
 
+	<%@include file="footer.jsp"%>
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="resources/js/jquery.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
 
 </body>
 </html>
