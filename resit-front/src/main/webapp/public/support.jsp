@@ -56,7 +56,7 @@ body {
 				<fieldset>
 					<legend>Ayuda para la b&uacute;squeda</legend>
 					<form action="/help/search" method="get" id="help-search">
-						<div class="row">
+						<div>
 							<input type="text" id="search-input" name="search" tabindex="5"
 								class="pull-left search-query span5"
 								placeholder="Escribe tu b&uacute;squeda aqu&iacute;"> <a
