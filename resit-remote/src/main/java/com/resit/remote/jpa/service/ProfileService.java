@@ -17,7 +17,7 @@ public interface ProfileService {
 	
 	/**
 	 * Obtiene el objeto Profile en base al identificador.
-	 * @param id - Identificador del usuario
+	 * @param id - Identificador del perfil de usuario
 	 * @return Profile que coincide con el identificador id, null en caso contrario
 	 */
 	public Profile findById(Long id);
