@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -28,12 +29,13 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 public class Continent extends AbstractPersistable<Long> implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id
-	@Column(name="ID")
+	@Column(name="ID_CONTINENT")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(name="NAME")
 	private String name;
-	@OneToMany 
+	@OneToMany
+	@JoinColumn(name="ID_COUNTRY")
 	private List<Country> countries;
 	
 	@Override

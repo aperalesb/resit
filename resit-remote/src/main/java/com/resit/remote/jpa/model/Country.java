@@ -6,11 +6,14 @@ package com.resit.remote.jpa.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -28,13 +31,16 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 public class Country extends AbstractPersistable<Long> implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id
-	@Column(name="ID")
+	@Column(name="ID_COUNTRY")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(name="NAME")
 	private String name;
-	@OneToMany 
+	@OneToMany
+	@JoinColumn(name="ID_STATE")
 	private List<State> states;
+	@ManyToOne(cascade=CascadeType.ALL)
+	private Continent continent;
 	
 	@Override
 	public String toString() {
@@ -63,6 +69,14 @@ public class Country extends AbstractPersistable<Long> implements Serializable {
 
 	public void setStates(List<State> states) {
 		this.states = states;
+	}
+	
+	public Continent getContinent() {
+		return continent;
+	}
+
+	public void setContinent(Continent continent) {
+		this.continent = continent;
 	}
 	
 	@Override

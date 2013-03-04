@@ -6,9 +6,18 @@
     <!-- this persistence unit is for the web application -->
     <persistence-unit name="springJpaPersistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>com.resit.remote.jpa.model.User</class>
+		<class>com.resit.remote.jpa.model.Alert</class>
+		<class>com.resit.remote.jpa.model.Card</class>
+		<class>com.resit.remote.jpa.model.City</class>
+		<class>com.resit.remote.jpa.model.Commerce</class>
+		<class>com.resit.remote.jpa.model.Consumer</class>
+		<class>com.resit.remote.jpa.model.Continent</class>
+		<class>com.resit.remote.jpa.model.Contract</class>
+		<class>com.resit.remote.jpa.model.Country</class>
+		<class>com.resit.remote.jpa.model.Discount</class>
+		<class>com.resit.remote.jpa.model.Message</class>
 		<class>com.resit.remote.jpa.model.Profile</class>
-		<class>com.resit.remote.jpa.model.Company</class>
+		<class>com.resit.remote.jpa.model.State</class>
         <properties>
         	<!-- 
 			<property name="hibernate.hbm2ddl.auto" value="create" />
