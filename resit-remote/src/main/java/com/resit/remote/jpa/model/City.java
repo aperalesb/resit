@@ -24,7 +24,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  */
 @Entity
 @Table(name="city")
-@NamedQuery(name="city.findByCityId", query="from City where ID = :id")
+@NamedQuery(name="city.findByCityId", query="from City where ID_CITY = :id")
 public class City extends AbstractPersistable<Long> implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id

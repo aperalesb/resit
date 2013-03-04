@@ -4,7 +4,6 @@
 package com.resit.remote.jpa.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,10 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -27,7 +24,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  */
 @Entity
 @Table(name="country")
-@NamedQuery(name="country.findByCountryId", query="from Country where ID = :id")
+@NamedQuery(name="country.findByCountryId", query="from Country where ID_COUNTRY = :id")
 public class Country extends AbstractPersistable<Long> implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id
@@ -36,15 +33,12 @@ public class Country extends AbstractPersistable<Long> implements Serializable {
 	private Long id;
 	@Column(name="NAME")
 	private String name;
-	@OneToMany
-	@JoinColumn(name="ID_STATE")
-	private List<State> states;
 	@ManyToOne(cascade=CascadeType.ALL)
 	private Continent continent;
 	
 	@Override
 	public String toString() {
-		return "Country [ID=" + id + ", name=" + name + states.toString() + "]";
+		return "Country [ID=" + id + ", name=" + name + "]";
 	}	
 
 	public Long getId() {
@@ -61,14 +55,6 @@ public class Country extends AbstractPersistable<Long> implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-	
-	public List<State> getStates() {
-		return states;
-	}
-
-	public void setStates(List<State> states) {
-		this.states = states;
 	}
 	
 	public Continent getContinent() {
