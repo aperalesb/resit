@@ -69,7 +69,7 @@
 		<dependency>
 			<groupId>net.sf.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
-			<version>1.6.2</version>
+			<version>${ehcache.version}</version>
 		</dependency>
 		
 		<dependency>
@@ -129,8 +129,6 @@
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
-		
-		            
 		
 		<dependency>
 			<groupId>org.springframework.data</groupId>

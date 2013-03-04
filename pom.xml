@@ -40,6 +40,7 @@
         <joda.time.version>1.5.2</joda.time.version>
         <log4j.version>1.2.16</log4j.version>
         <jackson.mapper.version>1.5.6</jackson.mapper.version>
+        <ehcache.version>1.6.2</ehcache.version>
         
         <!-- testing -->
         <junit.version>4.4</junit.version> <!-- Ojo, con versiones superiores a la 4.4, no localiza el fichero de contexto -->
