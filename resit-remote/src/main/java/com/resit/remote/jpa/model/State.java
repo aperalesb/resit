@@ -36,7 +36,7 @@ public class State extends AbstractPersistable<Long> implements Serializable {
 	@Column(name="NAME")
 	private String name;
 	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)                 // lazy XToOne
-    @JoinColumn(name = "country_fk")
+    @JoinColumn(name = "country_fk", referencedColumnName = "ID_COUNTRY")
 	private Country country;
 	
 	@Override
