@@ -23,12 +23,13 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 @Table(name="continent")
 @NamedQuery(name="continent.findByContinentId", query="from Continent where ID_CONTINENT = :id")
-public class Continent extends AbstractPersistable<Long> implements Serializable {
+public class Continent implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id
-	@Column(name="ID_CONTINENT")
+	@Column(name="ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	@Column(name="NAME")
 	private String name;
 	

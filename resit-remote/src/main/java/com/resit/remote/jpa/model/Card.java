@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -24,17 +26,22 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 @Table(name="card")
 @NamedQuery(name="card.findByCardId", query="from Card where ID = :id")
-public class Card extends AbstractPersistable<Long> implements Serializable {
+public class Card implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id
 	@Column(name="ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(name="EXPIRATIONTIME")
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name="EXPIRATION_TIME")
 	private Date expirationTime;
+	
 	@Column(name="TYPE")
 	private String type;
-	@Column(name="INITTIME")
+
+	@Temporal(TemporalType.DATE)
+	@Column(name="INIT_TIME")
 	private Date initTime;
 	
 	@Override

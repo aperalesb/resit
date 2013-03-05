@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -24,18 +26,24 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 @Table(name="contract")
 @NamedQuery(name="contract.findByContractId", query="from Contract where ID = :id")
-public class Contract extends AbstractPersistable<Long> implements Serializable {
+public class Contract implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id
 	@Column(name="ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(name="INITTIME")
+
+	@Temporal(TemporalType.DATE)
+	@Column(name="INIT_TIME")
 	private Date initTime;
-	@Column(name="EXPIRATIONTIME")
+
+	@Temporal(TemporalType.DATE)
+	@Column(name="EXPIRATION_TIME")
 	private Date expirationTime;
+	
 	@Column(name="FEE")
 	private Long fee;
+	
 	@Column(name="RENOVATION")
 	private Boolean renovation;
 	

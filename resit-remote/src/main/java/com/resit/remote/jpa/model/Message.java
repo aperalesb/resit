@@ -23,14 +23,16 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 @Table(name="message")
 @NamedQuery(name="message.findByMessageId", query="from Message where ID = :id")
-public class Message extends AbstractPersistable<Long> implements Serializable {
+public class Message implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id
 	@Column(name="ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	@Column(name="SUBJECT")
 	private String subject;
+	
 	@Column(name="BODY")
 	private String body;
 	

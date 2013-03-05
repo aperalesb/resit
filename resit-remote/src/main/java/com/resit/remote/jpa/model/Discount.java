@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -24,17 +26,22 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 @Table(name="discount")
 @NamedQuery(name="discount.findByDiscountId", query="from Discount where ID = :id")
-public class Discount extends AbstractPersistable<Long> implements Serializable {
+public class Discount implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id
 	@Column(name="ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(name="PUBLICATIONTIME")
+
+	@Temporal(TemporalType.DATE)
+	@Column(name="PUBLICATION_TIME")
 	private Date publicationTime;
-	@Column(name="EXPIRATIONTIME")
+
+	@Temporal(TemporalType.DATE)
+	@Column(name="EXPIRATION_TIME")
 	private Date expirationTime;
-	@Column(name="DISCOUNTEDVALUE")
+	
+	@Column(name="DISCOUNTED_VALUE")
 	private Long discountedValue;
 	
 	@Override

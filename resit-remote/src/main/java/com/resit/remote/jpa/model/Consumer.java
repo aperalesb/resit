@@ -29,12 +29,16 @@ public class Consumer extends AbstractPersistable<Long> implements Serializable 
 	@Column(name="ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	@Column(name="USERNAME")
 	private String username;
+	
 	@Column(name="PASSWORD")
 	private String password;
+	
 	@Column(name="ACTIVE")
 	private Boolean active;
+	
 	@Column(name="ENABLED")
 	private Boolean enabled;
 	

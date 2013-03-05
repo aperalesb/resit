@@ -18,51 +18,83 @@
             http://www.springframework.org/schema/data/jpa 
             http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <jpa:repositories base-package="com.resit.remote.jpa.repository" />	
-    		
-    
-    <!-- scans the classpath for annotated components (including @Repostory 
-    and @Service  that will be auto-registered as Spring beans  -->          
-    <context:component-scan base-package="com.resit.remote.jpa" />
+	<!-- scans the classpath for annotated components (including @Repostory 
+		and @Service that will be auto-registered as Spring beans -->
+	<!-- <context:component-scan base-package="com.resit.remote.jpa" /> -->
 
 
- 	<!-- Creates a data source that can provide a connection to in-memory embedded database populated 
-	with test data
-	see: http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/ch12s08.html   
-    <jdbc:embedded-database id="dataSource">
-        <jdbc:script location="classpath:schema.sql"/>
-        <jdbc:script location="classpath:test-data.sql"/>
-    </jdbc:embedded-database>
-	-->
-	
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-        p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://localhost/resitrdbms"
-        p:username="root" p:password="19aperales83" p:initialSize="5" p:maxActive="10">
-    </bean>
-	
-    
-    <!-- This will ensure that hibernate or jpa exceptions are automatically translated into
-         Spring's generic DataAccessException hierarchy for those classes annotated with Repository
-         For example see PersonDaoJpa-->
-    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
-    
-    <!-- JPA Entity Manager Factory -->
-    <bean id="entityManagerFactory" 
-          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-          p:dataSource-ref="dataSource"
-          p:persistenceXmlLocation="classpath:/persistence.xml" 
-    	  p:persistenceUnitName="springJpaPersistenceUnit" />          
+	<!-- Creates a data source that can provide a connection to in-memory embedded 
+		database populated with test data see: http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/ch12s08.html 
+		<jdbc:embedded-database id="dataSource"> <jdbc:script location="classpath:schema.sql"/> 
+		<jdbc:script location="classpath:test-data.sql"/> </jdbc:embedded-database> -->
 
-    
-    <!-- bean post-processor for JPA annotations -->
-    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" -->
+	<!-- p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://localhost/resitrdbms" -->
+	<!-- p:username="root" p:password="19aperales83" p:initialSize="5" p:maxActive="10"> -->
+	<!-- </bean> -->
+	<!-- Datasource Principal -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${hibernate.connection.driver}" />
+		<property name="url" value="${hibernate.connection.url}" />
+		<property name="username" value="${hibernate.connection.username}" />
+		<property name="password" value="${hibernate.connection.password}" />
+		<!-- <property name="acquireIncrement" value="${hibernate.acquireIncrement}" 
+			/> -->
+		<!-- <property name="maxPoolSize" value="${hibernate.maxPoolSize}" /> -->
+		<!-- <property name="minPoolSize" value="${hibernate.minPoolSize}" /> -->
+		<!-- <property name="checkoutTimeout" value="5000" /> -->
+		<!-- <property name="idleConnectionTestPeriod" value="1200" /> 20 minutos -->
+		<!-- <property name="testConnectionOnCheckout" value="true" /> -->
+		<!-- <property name="testConnectionOnCheckin" value="true" /> -->
+		<!-- <property name="maxIdleTime" value="${hibernate.maxIdleTime}" /> -->
+		<!-- <property name="maxConnectionAge" value="${hibernate.maxConnectionAge}" 
+			/> -->
+		<!-- <property name="unreturnedConnectionTimeout" value="7200" /> 2 horas 
+			maximo para una transaccion -->
+		<!-- <property name="debugUnreturnedConnectionStackTraces" value="true" 
+			/> -->
+	</bean>
 
- 
-    <!-- Transaction Config -->
-    <bean id="transactionManager"
-          class="org.springframework.orm.jpa.JpaTransactionManager"
-          p:entityManagerFactory-ref="entityManagerFactory"/>
 
-    <!-- use declarative transaction management  -->
-    <tx:annotation-driven  transaction-manager="transactionManager"/>
- </beans>
+	<!-- This will ensure that hibernate or jpa exceptions are automatically 
+		translated into Spring's generic DataAccessException hierarchy for those 
+		classes annotated with Repository For example see PersonDaoJpa -->
+	<bean
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+	<!-- JPA Entity Manager Factory -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="persistenceXmlLocation" value="classpath:/persistence.xml" />
+		<property name="persistenceUnitName" value="springJpaPersistenceUnit" />
+
+		<property name="jpaVendorAdapter">
+			<bean id="jpaAdapter"
+				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="generateDdl" value="true" />
+				<property name="databasePlatform" value="${hibernate.dialect}" />
+				<property name="showSql" value="${hibernate.showsql}" />
+			</bean>
+		</property>
+	</bean>
+
+
+	<!-- bean post-processor for JPA annotations -->
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+
+	<!-- Transaction Config -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
+		p:entityManagerFactory-ref="entityManagerFactory" />
+
+	<!-- use declarative transaction management -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<context:spring-configured />
+	<context:annotation-config />
+
+	<jpa:repositories base-package="com.resit.remote.jpa.repository" />
+</beans>

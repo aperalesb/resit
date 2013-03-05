@@ -13,32 +13,40 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
  * Modelo del objeto Alerta.
+ * 
  * @author aperalesb
- *
+ * 
  */
 @Entity
-@Table(name="alert")
-@NamedQuery(name="alert.findByAlertId", query="from Alert where ID = :id")
-public class Alert extends AbstractPersistable<Long> implements Serializable {
+@Table(name = "alert")
+@NamedQuery(name = "alert.findByAlertId", query = "from Alert where ID = :id")
+public class Alert implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id
-	@Column(name="ID")
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(name="STARTTIMEALERT")
-	private Date start;
-	@Column(name="STOPTIMEALERT")
-	private Date stop;
 	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "START_TIME_ALERT")
+	private Date start;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "STOP_TIME_ALERT")
+	private Date stop;
+
 	@Override
 	public String toString() {
-		return "Alert [ID=" + id + ", start=" + start.getTime() + ", stop=" + stop.getTime() + "]";
-	}	
+		return "Alert [ID=" + id + ", start=" + start.getTime() + ", stop="
+				+ stop.getTime() + "]";
+	}
 
 	public Long getId() {
 		return id;
@@ -47,7 +55,6 @@ public class Alert extends AbstractPersistable<Long> implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public Date getStart() {
 		return start;
@@ -70,8 +77,8 @@ public class Alert extends AbstractPersistable<Long> implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result	+ ((start == null) ? 0 : start.hashCode());
-		result = prime * result	+ ((stop == null) ? 0 : stop.hashCode());
+		result = prime * result + ((start == null) ? 0 : start.hashCode());
+		result = prime * result + ((stop == null) ? 0 : stop.hashCode());
 		return result;
 	}
 
@@ -80,26 +87,26 @@ public class Alert extends AbstractPersistable<Long> implements Serializable {
 		if (this == obj) {
 			return true;
 		}
-		
+
 		if (obj == null) {
 			return false;
 		}
-		
+
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		
+
 		Alert other = (Alert) obj;
-		
+
 		if (id == null) {
 			if (other.id != null) {
 				return false;
 			}
-			
+
 		} else if (!id.equals(other.id)) {
 			return false;
 		}
-		
+
 		if (start == null) {
 			if (other.start != null) {
 				return false;
@@ -107,7 +114,7 @@ public class Alert extends AbstractPersistable<Long> implements Serializable {
 		} else if (!start.equals(other.start)) {
 			return false;
 		}
-		
+
 		if (stop == null) {
 			if (other.stop != null) {
 				return false;
@@ -115,7 +122,7 @@ public class Alert extends AbstractPersistable<Long> implements Serializable {
 		} else if (!stop.equals(other.stop)) {
 			return false;
 		}
-		
+
 		return true;
 	}
 }

@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -24,18 +26,24 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 @Table(name="commerce")
 @NamedQuery(name="commerce.findByCommerceId", query="from Commerce where ID = :id")
-public class Commerce extends AbstractPersistable<Long> implements Serializable {
+public class Commerce implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id
 	@Column(name="ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	@Column(name="NAME")
 	private String name;
+
+	@Temporal(TemporalType.DATE)
 	@Column(name="RETURN_PERIOD")
 	private Date return_period;
+	
 	@Column(name="TEMPLATE")
 	private String template;
+	
+	//TODO Hacer con enumerados
 	@Column(name="TYPE")
 	private Long type;
 	

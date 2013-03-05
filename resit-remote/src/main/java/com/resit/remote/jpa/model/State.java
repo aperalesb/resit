@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ForeignKey;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
@@ -27,16 +28,18 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 @Table(name="state")
 @NamedQuery(name="state.findByStateId", query="from State where ID_STATE = :id")
-public class State extends AbstractPersistable<Long> implements Serializable {
+public class State implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id
-	@Column(name="ID_STATE")
+	@Column(name="ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	@Column(name="NAME")
 	private String name;
-	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)                 // lazy XToOne
-    @JoinColumn(name = "country_fk", referencedColumnName = "ID_COUNTRY")
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="country_fk",referencedColumnName="ID")
 	private Country country;
 	
 	@Override
