@@ -10,57 +10,74 @@
 	<url>http://www.resit.com</url>
 
 	<!-- Vesiones -->
-    <properties>
-        <spring.version>3.1.0.RELEASE</spring.version>
-        <spring.data.jpa.version>1.2.0.RELEASE</spring.data.jpa.version>
-        <spring.data.hadoop.version>1.0.0.RC2</spring.data.hadoop.version>
-        <spring.data.hbase.version>0.90.2</spring.data.hbase.version>
-        <spring-social.version>1.0.2.RELEASE</spring-social.version>
-        <spring.security.version>3.1.0.RELEASE</spring.security.version>
-        <spring-social-facebook.version>1.0.1</spring-social-facebook.version>
-        <spring.social-twitter.version>1.0.1</spring.social-twitter.version>
-        <spring.social-linkedin.version>1.0.0</spring.social-linkedin.version>
-        <commons-codec.version>1.5</commons-codec.version>
-        <httpclient.version>4.1.2</httpclient.version>
-        <cglib.version>2.2.2</cglib.version>
-        <hibernate.version>3.5.1-Final</hibernate.version>
-        <hibernate-validator.version>4.0.2.GA</hibernate-validator.version>
-        <hsqldb.version>1.8.0.10</hsqldb.version>
-        <mysql.driver.version>5.1.6</mysql.driver.version>
-        <h2database.version>1.3.160</h2database.version>
-        <commons.dbcp.version>1.2.2</commons.dbcp.version>
-        <bonecp.version>0.7.1.RELEASE</bonecp.version>
-        <servlet.version>2.5</servlet.version>
-        <javax.servlet.version>1.2</javax.servlet.version>
-        <jsp.api.version>2.1</jsp.api.version>
-        <struts2.version>2.2.1</struts2.version>
-        <javassist.version>3.8.0.GA</javassist.version>
-        <jstl.version>1.2</jstl.version>
-        <slf4j.version>1.6.1</slf4j.version>
-        <joda.time.version>1.5.2</joda.time.version>
-        <log4j.version>1.2.16</log4j.version>
-        <jackson.mapper.version>1.5.6</jackson.mapper.version>
-        <ehcache.version>1.6.2</ehcache.version>
-        
-        <!-- testing -->
-        <junit.version>4.4</junit.version> <!-- Ojo, con versiones superiores a la 4.4, no localiza el fichero de contexto -->
-        <spring.junit.version>2.5</spring.junit.version>
-        
-        <!-- building -->
-        <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
-        <maven-jetty-plugin.version>6.1.22</maven-jetty-plugin.version>
-        <maven-javadoc-plugin.version>2.6.1</maven-javadoc-plugin.version>
-        <apache.tomcat>6.0.35</apache.tomcat>
-        <maven-clean-plugin.version>2.4.1</maven-clean-plugin.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        
-        <!-- GIT -->
-        <svn.username>resit</svn.username>
-        <svn.password>123resit321</svn.password>
-        
-        <!-- Resit -->
-        <resit.version>0.0.1-SNAPSHOT</resit.version>
-    </properties>
+	<properties>
+		<spring.version>3.1.0.RELEASE</spring.version>
+		<spring.data.jpa.version>1.2.0.RELEASE</spring.data.jpa.version>
+		<spring.data.hadoop.version>1.0.0.RC2</spring.data.hadoop.version>
+		<spring.data.hbase.version>0.90.2</spring.data.hbase.version>
+		<spring-social.version>1.0.2.RELEASE</spring-social.version>
+		<spring.security.version>3.1.0.RELEASE</spring.security.version>
+		<spring-social-facebook.version>1.0.1</spring-social-facebook.version>
+		<spring.social-twitter.version>1.0.1</spring.social-twitter.version>
+		<spring.social-linkedin.version>1.0.0</spring.social-linkedin.version>
+		<commons-codec.version>1.5</commons-codec.version>
+		<httpclient.version>4.1.2</httpclient.version>
+		<cglib.version>2.2.2</cglib.version>
+		<hibernate.version>3.5.1-Final</hibernate.version>
+		<hibernate-validator.version>4.0.2.GA</hibernate-validator.version>
+		<hsqldb.version>1.8.0.10</hsqldb.version>
+		<mysql.driver.version>5.1.6</mysql.driver.version>
+		<h2database.version>1.3.160</h2database.version>
+		<commons.dbcp.version>1.2.2</commons.dbcp.version>
+		<bonecp.version>0.7.1.RELEASE</bonecp.version>
+		<servlet.version>2.5</servlet.version>
+		<javax.servlet.version>1.2</javax.servlet.version>
+		<jsp.api.version>2.1</jsp.api.version>
+		<struts2.version>2.2.1</struts2.version>
+		<javassist.version>3.8.0.GA</javassist.version>
+		<jstl.version>1.2</jstl.version>
+		<slf4j.version>1.6.1</slf4j.version>
+		<joda.time.version>1.5.2</joda.time.version>
+		<log4j.version>1.2.16</log4j.version>
+		<jackson.mapper.version>1.5.6</jackson.mapper.version>
+		<ehcache.version>1.6.2</ehcache.version>
+
+		<!-- testing -->
+		<junit.version>4.4</junit.version> <!-- Ojo, con versiones superiores a la 4.4, no localiza el fichero de contexto -->
+		<spring.junit.version>2.5</spring.junit.version>
+
+		<!-- building -->
+		<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+		<maven-jetty-plugin.version>6.1.22</maven-jetty-plugin.version>
+		<maven-javadoc-plugin.version>2.6.1</maven-javadoc-plugin.version>
+		<apache.tomcat>6.0.35</apache.tomcat>
+		<maven-clean-plugin.version>2.4.1</maven-clean-plugin.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- GIT -->
+		<svn.username>resit</svn.username>
+		<svn.password>123resit321</svn.password>
+
+		<!-- Resit -->
+		<resit.version>0.0.1-SNAPSHOT</resit.version>
+
+		<!-- Hibernate -->
+		<hibernate.connection.url>jdbc:mysql://192.168.1.22:3306/resit</hibernate.connection.url>
+		<hibernate.connection.username>resit</hibernate.connection.username>
+		<hibernate.connection.password>resit1234</hibernate.connection.password>
+		<hibernate.connection.driver>com.mysql.jdbc.Driver</hibernate.connection.driver>
+		<bd.schema>resit</bd.schema>
+		<hibernate.acquireIncrement>1</hibernate.acquireIncrement>
+		<hibernate.maxPoolSize>10</hibernate.maxPoolSize>
+		<hibernate.minPoolSize>1</hibernate.minPoolSize>
+		<hibernate.maxIdleTime>1800</hibernate.maxIdleTime> <!-- 30 min -->
+		<hibernate.maxConnectionAge>86400</hibernate.maxConnectionAge> <!-- 1 dia -->
+		<hibernate.showsql>true</hibernate.showsql>
+		<hibernate.formatsql>true</hibernate.formatsql>
+		<hibernate.hbm2ddl.auto>create</hibernate.hbm2ddl.auto>
+		<hibernate.generate_statistics>false</hibernate.generate_statistics>
+		<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
+	</properties>
 
 	<modules>
 		<module>./resit-controller</module>
