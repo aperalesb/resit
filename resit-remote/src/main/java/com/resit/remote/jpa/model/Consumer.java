@@ -10,10 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
  * Modelo del objeto Consumer.
@@ -22,8 +19,8 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  */
 @Entity
 @Table(name="consumer")
-@NamedQuery(name="users.findByConsumerId", query="from Consumer where ID = :id")
-public class Consumer extends AbstractPersistable<Long> implements Serializable  {
+//@NamedQuery(name="consumer.findById", query="from consumer where ID = :id")
+public class Consumer implements Serializable  {
 	private static final long serialVersionUID = 3697535594187479699L;
 	@Id
 	@Column(name="ID")

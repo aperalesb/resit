@@ -70,14 +70,14 @@
 		<property name="persistenceXmlLocation" value="classpath:/persistence.xml" />
 		<property name="persistenceUnitName" value="springJpaPersistenceUnit" />
 
-		<property name="jpaVendorAdapter">
-			<bean id="jpaAdapter"
-				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-				<property name="generateDdl" value="true" />
-				<property name="databasePlatform" value="${hibernate.dialect}" />
-				<property name="showSql" value="${hibernate.showsql}" />
-			</bean>
-		</property>
+<!-- 		<property name="jpaVendorAdapter"> -->
+<!-- 			<bean id="jpaAdapter" -->
+<!-- 				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"> -->
+<!-- 				<property name="generateDdl" value="true" /> -->
+<!-- 				<property name="databasePlatform" value="${hibernate.dialect}" /> -->
+<!-- 				<property name="showSql" value="${hibernate.showsql}" /> -->
+<!-- 			</bean> -->
+<!-- 		</property> -->
 	</bean>
 
 

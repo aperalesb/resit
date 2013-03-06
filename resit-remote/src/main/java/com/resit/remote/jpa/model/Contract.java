@@ -11,12 +11,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
  * Modelo del objeto Contrato.
@@ -25,7 +22,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  */
 @Entity
 @Table(name="contract")
-@NamedQuery(name="contract.findByContractId", query="from Contract where ID = :id")
+//@NamedQuery(name="contract.findById", query="from Contract where ID = :id")
 public class Contract implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id

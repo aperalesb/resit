@@ -14,11 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.ForeignKey;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
  * Modelo del objeto Estado o Provincia.
@@ -27,7 +23,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  */
 @Entity
 @Table(name="state")
-@NamedQuery(name="state.findByStateId", query="from State where ID_STATE = :id")
+//@NamedQuery(name="state.findById", query="from State where ID = :id")
 public class State implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id

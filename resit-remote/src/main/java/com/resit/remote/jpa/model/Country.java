@@ -14,11 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.ForeignKey;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
  * Modelo del objeto País.
@@ -28,7 +24,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  */
 @Entity
 @Table(name = "country")
-//@NamedQuery(name = "country.findByCountryId", query = "from Country where ID = :id")
+//@NamedQuery(name = "country.findById", query = "from Country where ID = :id")
 public class Country implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	

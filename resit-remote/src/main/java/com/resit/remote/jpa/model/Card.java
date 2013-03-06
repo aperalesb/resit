@@ -11,12 +11,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
  * Modelo del objeto Card.
@@ -25,7 +22,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  */
 @Entity
 @Table(name="card")
-@NamedQuery(name="card.findByCardId", query="from Card where ID = :id")
+//@NamedQuery(name="card.findById", query="from Card where ID = :id")
 public class Card implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id

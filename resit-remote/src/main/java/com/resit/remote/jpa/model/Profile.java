@@ -11,12 +11,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
  * Modelo del objeto Perfil de usuario.
@@ -25,7 +22,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  */
 @Entity
 @Table(name="profile")
-@NamedQuery(name="profile.findByProfileId", query="from Profile where ID = :id")
+//@NamedQuery(name="profile.findById", query="from Profile where ID = :id")
 public class Profile implements Serializable {
 	private static final long serialVersionUID = 4161692985463817989L;
 	@Id

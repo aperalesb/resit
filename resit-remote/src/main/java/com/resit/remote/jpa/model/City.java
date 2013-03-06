@@ -14,10 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
  * Modelo del objeto Ciudad o Pueblo.
@@ -27,7 +24,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  */
 @Entity
 @Table(name = "city")
-@NamedQuery(name = "city.findByCityId", query = "from City where ID_CITY = :id")
+//@NamedQuery(name = "city.findById", query = "from City where ID = :id")
 public class City implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id

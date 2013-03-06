@@ -62,7 +62,7 @@
 		<resit.version>0.0.1-SNAPSHOT</resit.version>
 
 		<!-- Hibernate -->
-		<hibernate.connection.url>jdbc:mysql://192.168.1.22:3306/resit</hibernate.connection.url>
+		<hibernate.connection.url>jdbc:mysql://localhost:3306/resit</hibernate.connection.url>
 		<hibernate.connection.username>resit</hibernate.connection.username>
 		<hibernate.connection.password>resit1234</hibernate.connection.password>
 		<hibernate.connection.driver>com.mysql.jdbc.Driver</hibernate.connection.driver>

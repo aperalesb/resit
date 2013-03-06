@@ -16,8 +16,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.springframework.data.jpa.domain.AbstractPersistable;
-
 /**
  * Modelo del objeto Alerta.
  * 
@@ -26,7 +24,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  */
 @Entity
 @Table(name = "alert")
-@NamedQuery(name = "alert.findByAlertId", query = "from Alert where ID = :id")
+@NamedQuery(name = "alert.findById", query = "from Alert where ID = :id")
 public class Alert implements Serializable {
 	private static final long serialVersionUID = -6141852419517481059L;
 	@Id
