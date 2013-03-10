@@ -86,7 +86,7 @@
 
 	<bean id="authenticationProcessingFilterEntryPoint"
 		class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
-		<property name="loginFormUrl" value="/index.jsp" />
+		<property name="loginFormUrl" value="/index.do" />
 		<property name="forceHttps" value="false" />
 	</bean>
 

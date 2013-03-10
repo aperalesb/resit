@@ -16,7 +16,7 @@ public class FooController {
 		return new ModelAndView("index");
 	}
 
-	@RequestMapping("support.do")
+	@RequestMapping("public/support.do")
 	public ModelAndView support(){
 		return new ModelAndView("public/support");
 	}

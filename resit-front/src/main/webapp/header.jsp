@@ -17,7 +17,7 @@
 						<li><a href="<%=request.getContextPath()%>/home.do">Home</a></li>
 					</sec:authorize>
 					<li><a href="#about">About</a></li>
-					<li><a href="<%=request.getContextPath()%>/support.do">Help</a></li>
+					<li><a href="<%=request.getContextPath()%>/public/support.do">Help</a></li>
 				</ul>
 				<sec:authorize access="isAnonymous()">
 					<form class="form-inline navbar-form pull-right"
