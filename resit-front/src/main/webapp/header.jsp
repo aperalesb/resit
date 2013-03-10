@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<meta charset="utf-8">
+
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
@@ -14,32 +20,18 @@
 					<li><a href="<%=request.getContextPath()%>/public/support.jsp">Help</a></li>
 				</ul>
 				<sec:authorize access="isAnonymous()">
-					<form class="form-inline navbar-form pull-right" action="j_spring_security_check" method="post">
-						<input type="text" class="input-small" placeholder="Email" name="j_username">
-						<input type="password" class="input-small" placeholder="Password" name="j_password">
-						<label class="checkbox"> <input type="checkbox" name='_spring_security_remember_me'>
-							Remember me
+					<form class="form-inline navbar-form pull-right"
+						action="j_spring_security_check" method="post">
+						<input type="text" class="input-small" placeholder="Email"
+							name="j_username"> <input type="password"
+							class="input-small" placeholder="Password" name="j_password">
+						<label class="checkbox"> <input type="checkbox"
+							name='_spring_security_remember_me'> Remember me
 						</label>
-						<button type="submit" class="btn"><i class="icon-signin">&nbsp;</i>Sign in</button>
+						<button type="submit" class="btn">
+							<i class="icon-signin">&nbsp;</i>Sign in
+						</button>
 					</form>
-<!-- 					<form class="navbar-form pull-right" -->
-<!-- 						action="j_spring_security_check" method="post"> -->
-<!-- 						<input class="span2" name="j_username" type="text" -->
-<!-- 							placeholder="Email"> <input class="span2" -->
-<!-- 							name="j_password" type="password" placeholder="Password"> -->
-<!-- 						<button type="submit" class="btn"> -->
-<!-- 							<i class="icon-signin">&nbsp;Sign in</i> -->
-<!-- 						</button> -->
-<!-- 						<div class="row"> -->
-<!-- 							<div class="right"> -->
-<!-- 								<label class="forCheckbox" for='_spring_security_remember_me'> -->
-<!-- 									Remember me: <input type='checkbox' -->
-<!-- 									name='_spring_security_remember_me' /> -->
-<!-- 								</label> -->
-<!-- 							</div> -->
-<!-- 							<div class="cl"></div> -->
-<!-- 						</div> -->
-<!-- 					</form> -->
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<form class="navbar-form pull-right" action="logout" method="post">
@@ -66,6 +58,18 @@
 						</div>
 					</form>
 				</sec:authorize>
+				<div class="navbar-text pull-right">
+					<ul class="nav pull-right">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" style="text-decoration: none;">
+						<spring:message code="header.language.selector"/>&nbsp;<i class="icon-angle-down"></i>
+						</a>
+							<ul class="dropdown-menu">
+								<li><a href="?lang=es"><spring:message code="language.spanish"/></a></li>
+								<li><a href="?lang=en"><spring:message code="language.english"/></a></li>
+							</ul></li>
+					</ul>
+				</div>
 			</div>
 			<!--/.nav-collapse -->
 		</div>

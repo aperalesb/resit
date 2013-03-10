@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <title>Resit</title>
@@ -41,9 +39,8 @@ body {
 
 <body>
 	<%@include file="header.jsp"%>
-	
-	<div class="container">
 
+	<div class="container">
 		<!-- Main hero unit for a primary marketing message or call to action -->
 		<div class="hero-unit">
 			<h1>Resit</h1>

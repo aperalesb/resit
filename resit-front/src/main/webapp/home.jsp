@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
-<title>Bootstrap, from Twitter</title>
+<title>Resit</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -42,22 +40,80 @@ body {
 	<%@include file="header.jsp"%>
 
 	<div class="container">
-
-		<!-- Main hero unit for a primary marketing message or call to action -->
-		<div class="pills pills-vertical">
-			<h1>Hello, ${name}!</h1>
-			<p>This is a template for a simple marketing or informational
-				website. It includes a large callout called the hero unit and three
-				supporting pieces of content. Use it as a starting point to create
-				something more unique.</p>
-			<p>
-				<a class="btn btn-primary btn-large">Learn more &raquo;</a>
-			</p>
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#">Tickets</a></li>
+			<li><a href="#">Graficas</a></li>
+		</ul>
+		<div class="row-fluid">
+			<div class="span4">
+				<div class="thumbnail">
+					<form action="">
+						<fieldset>
+							<legend> Filtrar por... </legend>
+							<label class="checkbox"> <input type="checkbox">
+								Solo favoritos
+							</label>
+						</fieldset>
+					</form>
+					<form action="">
+						<fieldset>
+							<legend> Detalles del vendedor </legend>
+							<img class="center"
+								src="http://cdn1.iconfinder.com/data/icons/Vibrant-Stickers-Tutorial9/128/Purple-Shop.png" />
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<div class="span8">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td colspan="5">Header de Tabla de 5 columnas</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Columna1</td>
+							<td>Columna2</td>
+							<td>Columna3</td>
+							<td>Columna4</td>
+							<td>Columna5</td>
+						</tr>
+						<tr>
+							<td>Columna1</td>
+							<td>Columna2</td>
+							<td>Columna3</td>
+							<td>Columna4</td>
+							<td>Columna5</td>
+						</tr>
+						<tr>
+							<td>Columna1</td>
+							<td>Columna2</td>
+							<td>Columna3</td>
+							<td>Columna4</td>
+							<td>Columna5</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="5">
+								<div class="pagination">
+									<ul>
+										<li><a href="#">&laquo;</a></li>
+										<li class="active"><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">&raquo;</a></li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
 		</div>
-
-		<hr>
-
 	</div>
+
 	<!-- /container -->
 
 	<%@include file="footer.jsp"%>
