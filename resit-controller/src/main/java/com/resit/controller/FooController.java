@@ -11,8 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class FooController {
 	
-	@RequestMapping("bar.do")
-	public ModelAndView bar(){
-		return new ModelAndView("bar");
+	@RequestMapping("index.do")
+	public ModelAndView index(){
+		return new ModelAndView("index");
+	}
+
+	@RequestMapping("support.do")
+	public ModelAndView support(){
+		return new ModelAndView("public/support");
 	}
 }

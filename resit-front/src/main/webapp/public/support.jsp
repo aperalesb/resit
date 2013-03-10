@@ -8,9 +8,9 @@
 <meta name="author" content="">
 
 <!-- Estilos CSS -->
-<link href="../resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="../resources/css/font-awesome.min.css" rel="stylesheet">
-<link href="../resources/css/resit-main.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/css/font-awesome.min.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/css/resit-main.css" rel="stylesheet">
 
 <style type="text/css">
 body {
@@ -18,7 +18,7 @@ body {
 	padding-bottom: 40px;
 }
 </style>
-<link href="../resources/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/css/bootstrap-responsive.css" rel="stylesheet">
 
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -37,14 +37,14 @@ body {
 	href="ico/apple-touch-icon-57-precomposed.png">
 
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="../resources/js/jquery.js"></script>
-<script src="../resources/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 
 
 </head>
 
 <body>
-	<%@include file="../header.jsp"%>
+	<%@include file="/header.jsp"%>
 	<div class="container">
 		<div id="page-content">
 			<div id="help-view">
@@ -205,7 +205,7 @@ body {
 		</div>
 
 	</div>
-	<%@include file="../footer.jsp"%>
+	<%@include file="/footer.jsp"%>
 	<!-- /container -->
 
 	<script type="text/javascript"

@@ -10,18 +10,18 @@
 			<a class="btn btn-navbar" data-toggle="collapse"
 				data-target=".nav-collapse"> <span class="icon-bar"></span> <span
 				class="icon-bar"></span> <span class="icon-bar"></span>
-			</a> <a class="brand" href="<%=request.getContextPath()%>/index.jsp">Resit</a>
+			</a> <a class="brand" href="<%=request.getContextPath()%>/index.do">Resit</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<sec:authorize access="isAuthenticated()">
 						<li><a href="<%=request.getContextPath()%>/home.do">Home</a></li>
 					</sec:authorize>
 					<li><a href="#about">About</a></li>
-					<li><a href="<%=request.getContextPath()%>/public/support.jsp">Help</a></li>
+					<li><a href="<%=request.getContextPath()%>/support.do">Help</a></li>
 				</ul>
 				<sec:authorize access="isAnonymous()">
 					<form class="form-inline navbar-form pull-right"
-						action="j_spring_security_check" method="post">
+						action="<%=request.getContextPath()%>/j_spring_security_check" method="post">
 						<input type="text" class="input-small" placeholder="Email"
 							name="j_username"> <input type="password"
 							class="input-small" placeholder="Password" name="j_password">
