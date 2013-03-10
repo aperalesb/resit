@@ -21,15 +21,20 @@
 				</ul>
 				<sec:authorize access="isAnonymous()">
 					<form class="form-inline navbar-form pull-right"
-						action="<%=request.getContextPath()%>/j_spring_security_check" method="post">
-						<input type="text" class="input-small" placeholder="Email"
+						action="<%=request.getContextPath()%>/j_spring_security_check"
+						method="post">
+						<input type="text" class="input-small"
+							placeholder="<spring:message code="form.login.email"/>"
 							name="j_username"> <input type="password"
-							class="input-small" placeholder="Password" name="j_password">
-						<label class="checkbox"> <input type="checkbox"
-							name='_spring_security_remember_me'> Remember me
+							class="input-small"
+							placeholder="<spring:message code="form.login.password"/>"
+							name="j_password"> <label class="checkbox"> <input
+							type="checkbox" name='_spring_security_remember_me'>
+						<spring:message code="form.login.rememberme" />
 						</label>
 						<button type="submit" class="btn">
-							<i class="icon-signin">&nbsp;</i>Sign in
+							<i class="icon-signin">&nbsp;</i>
+							<spring:message code="form.login.button.signin" />
 						</button>
 					</form>
 				</sec:authorize>
@@ -49,7 +54,8 @@
 										<li class="nav-header">Session</li>
 										<li><a href="#">Preferences</a></li>
 										<li><a href="<%=request.getContextPath()%>/logout"><i
-												class="icon-signout">&nbsp;</i>Sign Out</a></li>
+												class="icon-signout">&nbsp;</i>
+											<spring:message code="form.login.button.signout" /></a></li>
 									</ul></li>
 							</ul>
 							<span id="userName" class="nav pull-right"> <sec:authentication
@@ -61,12 +67,15 @@
 				<div class="navbar-text pull-right">
 					<ul class="nav pull-right">
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" style="text-decoration: none;">
-						<spring:message code="header.language.selector"/>&nbsp;<i class="icon-angle-down"></i>
+							data-toggle="dropdown" style="text-decoration: none;"> <spring:message
+									code="header.language.selector" />&nbsp;<i
+								class="icon-angle-down"></i>
 						</a>
 							<ul class="dropdown-menu">
-								<li><a href="?lang=es"><spring:message code="language.spanish"/></a></li>
-								<li><a href="?lang=en"><spring:message code="language.english"/></a></li>
+								<li><a href="?lang=es"><spring:message
+											code="language.spanish" /></a></li>
+								<li><a href="?lang=en"><spring:message
+											code="language.english" /></a></li>
 							</ul></li>
 					</ul>
 				</div>
