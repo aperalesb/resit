@@ -5,13 +5,19 @@ package com.resit.remote.jpa.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -39,6 +45,21 @@ public class Alert implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "STOP_TIME_ALERT")
 	private Date stop;
+	
+	@OneToOne
+    @JoinColumn(name="message_fk",referencedColumnName="ID")
+	private Message message;
+	
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name = "consumer_alert",	
+		joinColumns = {
+			@JoinColumn(name="consumerID")
+		},	
+		inverseJoinColumns = {
+			@JoinColumn(name="alertID")
+		}
+	)
+	private List<Consumer> consumers;
 
 	@Override
 	public String toString() {
@@ -68,6 +89,22 @@ public class Alert implements Serializable {
 
 	public void setStop(Date stop) {
 		this.stop = stop;
+	}
+	
+	public Message getMessage() {
+		return message;
+	}
+
+	public void setMessage(Message message) {
+		this.message = message;
+	}
+
+	public List<Consumer> getConsumers() {
+		return consumers;
+	}
+
+	public void setConsumers(List<Consumer> consumers) {
+		this.consumers = consumers;
 	}
 
 	@Override

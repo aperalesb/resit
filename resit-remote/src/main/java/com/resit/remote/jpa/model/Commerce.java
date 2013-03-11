@@ -5,12 +5,19 @@ package com.resit.remote.jpa.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -44,6 +51,26 @@ public class Commerce implements Serializable {
 	@Column(name="TYPE")
 	private Long type;
 	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="country_fk",referencedColumnName="ID")
+	private Country country;
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="state_fk",referencedColumnName="ID")
+	private State state;
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="city_fk",referencedColumnName="ID")
+	private City city;
+	
+	@OneToMany
+    @JoinColumn(name="discount_fk",referencedColumnName="ID")
+	private List<Discount> discounts;
+	
+	@OneToOne
+    @JoinColumn(name="contract_fk",referencedColumnName="ID")
+	private Contract contract;
+
 	@Override
 	public String toString() {
 		return "Commerce [ID=" + id + ", name=" + name + ", return_period=" + return_period.getTime() + 
@@ -88,6 +115,46 @@ public class Commerce implements Serializable {
 
 	public void setType(Long type) {
 		this.type = type;
+	}
+	
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
+	
+	public List<Discount> getDiscounts() {
+		return discounts;
+	}
+
+	public void setDiscounts(List<Discount> discounts) {
+		this.discounts = discounts;
+	}
+
+	public Contract getContract() {
+		return contract;
+	}
+
+	public void setContract(Contract contract) {
+		this.contract = contract;
 	}
 
 	@Override

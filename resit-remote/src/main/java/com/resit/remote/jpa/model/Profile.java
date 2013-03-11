@@ -6,11 +6,16 @@ package com.resit.remote.jpa.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -58,6 +63,26 @@ public class Profile implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name="SINGOFF")
 	private Date singoff;
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="country_fk",referencedColumnName="ID")
+	private Country country;
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="state_fk",referencedColumnName="ID")
+	private State state;
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="city_fk",referencedColumnName="ID")
+	private City city;
+	
+	@OneToOne
+    @JoinColumn(name="consumer_fk",referencedColumnName="ID")
+	private Consumer consumer;
+	
+	@OneToOne
+    @JoinColumn(name="card_fk",referencedColumnName="ID")
+	private Card card;
 	
 	@Override
 	public String toString() {
@@ -145,6 +170,46 @@ public class Profile implements Serializable {
 
 	public void setSingoff(Date singoff) {
 		this.singoff = singoff;
+	}
+	
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
+
+	public Consumer getConsumer() {
+		return consumer;
+	}
+
+	public void setConsumer(Consumer consumer) {
+		this.consumer = consumer;
+	}
+	
+	public Card getCard() {
+		return card;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
 	}
 
 	@Override

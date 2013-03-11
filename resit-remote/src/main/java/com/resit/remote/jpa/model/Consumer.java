@@ -4,12 +4,19 @@
 package com.resit.remote.jpa.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -38,6 +45,25 @@ public class Consumer implements Serializable  {
 	
 	@Column(name="ENABLED")
 	private Boolean enabled;
+	
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name = "consumer_alert",	
+		joinColumns = {
+			@JoinColumn(name="consumerID")
+		},	
+		inverseJoinColumns = {
+			@JoinColumn(name="alertID")
+		}
+	)
+	private List<Alert> alerts;
+	
+	@OneToMany
+	@JoinColumn(name="messageID", referencedColumnName="ID")
+	private List<Message> messages;
+	
+	@OneToOne
+    @JoinColumn(name="profile_fk",referencedColumnName="ID")
+	private Profile profile;
 	
 	@Override
 	public String toString() {
@@ -83,6 +109,30 @@ public class Consumer implements Serializable  {
 
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
+	}
+	
+	public List<Alert> getAlerts() {
+		return alerts;
+	}
+
+	public void setAlerts(List<Alert> alerts) {
+		this.alerts = alerts;
+	}
+	
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
+	
+	public Profile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
 	}
 
 	@Override

@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -43,6 +45,10 @@ public class Contract implements Serializable {
 	
 	@Column(name="RENOVATION")
 	private Boolean renovation;
+	
+	@OneToOne
+    @JoinColumn(name="commerce_fk",referencedColumnName="ID")
+	private Contract commerce;
 	
 	@Override
 	public String toString() {
@@ -88,6 +94,14 @@ public class Contract implements Serializable {
 
 	public void setRenovation(Boolean renovation) {
 		this.renovation = renovation;
+	}
+	
+	public Contract getCommerce() {
+		return commerce;
+	}
+
+	public void setCommerce(Contract commerce) {
+		this.commerce = commerce;
 	}
 
 	@Override

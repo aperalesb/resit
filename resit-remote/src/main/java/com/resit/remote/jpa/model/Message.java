@@ -5,11 +5,16 @@ package com.resit.remote.jpa.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -33,10 +38,18 @@ public class Message implements Serializable {
 	@Column(name="BODY")
 	private String body;
 	
+	@OneToOne
+    @JoinColumn(name="alert_fk",referencedColumnName="ID")
+	private Alert alert;
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "consumer_fk", referencedColumnName = "ID")
+	private Consumer consumer;
+	
 	@Override
 	public String toString() {
 		return "Commerce [ID=" + id + ", subject=" + subject + ", body=" + body + "]";
-	}	
+	}
 
 	public Long getId() {
 		return id;
@@ -60,6 +73,22 @@ public class Message implements Serializable {
 
 	public void setBody(String body) {
 		this.body = body;
+	}
+	
+	public Alert getAlert() {
+		return alert;
+	}
+
+	public void setAlert(Alert alert) {
+		this.alert = alert;
+	}
+	
+	public Consumer getConsumer() {
+		return consumer;
+	}
+
+	public void setConsumer(Consumer consumer) {
+		this.consumer = consumer;
 	}
 
 	@Override

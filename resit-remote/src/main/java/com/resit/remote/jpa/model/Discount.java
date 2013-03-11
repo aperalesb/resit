@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -40,6 +42,10 @@ public class Discount implements Serializable {
 	
 	@Column(name="DISCOUNTED_VALUE")
 	private Long discountedValue;
+	
+	@ManyToOne
+    @JoinColumn(name="commerce_fk",referencedColumnName="ID")
+	private Commerce commerce;
 	
 	@Override
 	public String toString() {
@@ -77,6 +83,14 @@ public class Discount implements Serializable {
 
 	public void setDiscountedValue(Long discountedValue) {
 		this.discountedValue = discountedValue;
+	}
+	
+	public Commerce getCommerce() {
+		return commerce;
+	}
+
+	public void setCommerce(Commerce commerce) {
+		this.commerce = commerce;
 	}
 
 	@Override

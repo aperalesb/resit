@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -30,6 +32,9 @@ public class Card implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(name="NUMBER")
+	private Long number;
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name="EXPIRATION_TIME")
 	private Date expirationTime;
@@ -40,6 +45,10 @@ public class Card implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name="INIT_TIME")
 	private Date initTime;
+	
+	@OneToOne
+    @JoinColumn(name="profile_fk",referencedColumnName="ID")
+	private Contract profile;
 	
 	@Override
 	public String toString() {
@@ -78,6 +87,22 @@ public class Card implements Serializable {
 
 	public void setInitTime(Date initTime) {
 		this.initTime = initTime;
+	}
+	
+	public Contract getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Contract profile) {
+		this.profile = profile;
+	}
+	
+	public Long getNumber() {
+		return number;
+	}
+
+	public void setNumber(Long number) {
+		this.number = number;
 	}
 
 	@Override
