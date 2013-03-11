@@ -10,7 +10,7 @@
 		<sec:access-denied-handler ref="accessDeniedHandler" />
 
 		<sec:intercept-url pattern="/resources/**" access="permitAll" />
-		<sec:intercept-url pattern="/*.jsp" access="denyAll" />
+		<sec:intercept-url pattern="/**/*.jsp" access="denyAll" />
 		<sec:intercept-url pattern="/index.do" access="permitAll" />
 		<sec:intercept-url pattern="/public/*.do" access="permitAll" />
 		<sec:intercept-url pattern="/error/*.do" access="permitAll" />
