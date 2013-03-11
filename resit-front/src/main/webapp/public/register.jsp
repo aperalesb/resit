@@ -39,7 +39,19 @@ body {
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="../resources/js/jquery.js"></script>
 <script src="../resources/js/bootstrap.min.js"></script>
+<!-- Include Bootstrap Asserts JavaScript Files. -->
+<!-- <script type="text/javascript" src="jquery.validate.js"></script> -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		// Popover 
+		$('#registerForm input').hover(function() {
+			$(this).popover('show')
+		}, function() {
+			$(this).popover('hide')
+		});
 
+	});
+</script>
 
 </head>
 
@@ -47,60 +59,52 @@ body {
 	<%@include file="../header.jsp"%>
 	<div class="container">
 
-		<form class="form-horizontal" id="registerHere" method='post'
+		<form class="form-horizontal" id="registerForm" method='post'
 			action=''>
 			<fieldset>
-			
-<!-- 				<div class="alert alert-success">Well done! You successfully -->
-<!-- 					read this important alert message.</div> -->
-		
-				<legend><spring:message code="label.register.title" /></legend>
+
+				<!-- 				<div class="alert alert-success">Well done! You successfully -->
+				<!-- 					read this important alert message.</div> -->
+
+				<legend>
+					<spring:message code="label.register.title" />
+				</legend>
 
 				<div class="control-group">
-					<div class="controls">
-						<input type="text" class="input-xlarge" id="user_name"
-							name="user_name" rel="popover"
-							data-content="Enter your first and last name."
-							data-original-title="Full Name"
-							placeholder="<spring:message code="form.register.label.name" />">
-					</div>
+					<input type="text" class="input-xlarge" id="user_name"
+						name="user_name" rel="popover"
+						data-content="Enter your first and last name."
+						data-original-title="Full Name"
+						placeholder="<spring:message code="form.register.label.name" />">
 				</div>
 
 				<div class="control-group">
-					<div class="controls">
-						<input type="text" class="input-xlarge" id="user_email"
-							name="user_email" rel="popover"
-							data-content="What’s your email address?"
-							data-original-title="Email"
-							placeholder="<spring:message code="form.register.label.email" />">
-					</div>
+					<input type="text" class="input-xlarge" id="user_email"
+						name="user_email" rel="popover"
+						data-content="What’s your email address?"
+						data-original-title="Email"
+						placeholder="<spring:message code="form.register.label.email" />">
 				</div>
 
 				<div class="control-group">
-					<div class="controls">
-						<input type="text" class="input-xlarge" id="user_password"
-							name="user_email" rel="popover"
-							data-content="What’s your email address?"
-							data-original-title="Email"
-							placeholder="<spring:message code="form.register.label.password" />">
-					</div>
+					<input type="text" class="input-xlarge" id="user_password"
+						name="user_password" rel="popover"
+						data-content="Choose a password for your account"
+						data-original-title="Password"
+						placeholder="<spring:message code="form.register.label.password" />">
 				</div>
 
 				<div class="control-group">
-					<div class="controls">
-						<input type="check" class="input-xlarge" id="agree_terms"
-							name="agree_terms" rel="popover"
-							data-content="I accept terms & conditions"
-							data-original-title="Terms & Conditions"
-							placeholder="<spring:message code="form.register.check.terms" />">
-					</div>
+					<input id="agree_terms" style="float: left; margin-right: 10px;"
+						type="checkbox" name="agree_terms" value="1" /> <label
+						class="string optional" for="agree_terms">
+						<a href="#"><spring:message	code="form.register.check.terms" /></a></label>
 				</div>
 
 				<div class="control-group">
-					<label class="control-label"></label>
-					<div class="controls">
-						<button type="submit" class="btn btn-success"><spring:message code="form.register.button.create" /></button>
-					</div>
+					<button type="submit" class="btn btn-success">
+						<spring:message code="form.register.button.create" />
+					</button>
 				</div>
 
 			</fieldset>
