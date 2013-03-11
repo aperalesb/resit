@@ -14,19 +14,16 @@
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<sec:authorize access="isAuthenticated()">
-						<li><a href="<%=request.getContextPath()%>/home.do">Home</a></li>
+						<li><a href="<%=request.getContextPath()%>/home.do"><spring:message code="link.navigation.home" /></a></li>
 					</sec:authorize>
-					<li><a href="#about">About</a></li>
-					<li><a href="<%=request.getContextPath()%>/public/support.do">Help</a></li>
 				</ul>
 				<sec:authorize access="isAnonymous()">
 					<ul class="nav pull-right">
-						<li><a href="/users/sign_up"><spring:message
+						<li><a href="<%=request.getContextPath()%>/public/register.do"><spring:message
 									code="form.login.button.signup" /></a></li>
 						<li class="divider-vertical"></li>
 						<li class="dropdown"><a class="dropdown-toggle" href="#"
-							data-toggle="dropdown"><spring:message
-									code="form.login.button.signin" />&nbsp;<strong class="caret"></strong></a>
+							data-toggle="dropdown"><spring:message code="form.login.button.signin" />&nbsp;<strong class="caret"></strong></a>
 							<div class="dropdown-menu"
 								style="padding: 15px; padding-bottom: 0px;">
 								<form
@@ -48,8 +45,7 @@
 										style="clear: left; width: 100%; height: 32px; font-size: 13px;"
 										type="submit" class="btn btn-primary">
 										<i class="icon-signin">&nbsp;</i>
-										<spring:message code="form.login.button.signin" />
-									</button>
+										<spring:message code="form.login.button.signin" /></button>
 								</form>
 							</div></li>
 					</ul>
@@ -72,7 +68,7 @@
 											<li><a href="#">Something else here</a></li>
 											<li class="divider"></li>
 											<li class="nav-header">Session</li>
-											<li><a href="#">Preferences</a></li>
+											<li><a href="#"><i class="icon-cogs"></i>&nbsp;Preferences</a></li>
 											<li><a href="<%=request.getContextPath()%>/logout"><i
 													class="icon-signout">&nbsp;</i> <spring:message
 														code="form.login.button.signout" /></a></li>

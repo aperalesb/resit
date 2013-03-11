@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-public class FooController {
+public class NavigationController {
 	
 	@RequestMapping("index.do")
 	public ModelAndView index(){
@@ -19,5 +19,10 @@ public class FooController {
 	@RequestMapping("public/support.do")
 	public ModelAndView support(){
 		return new ModelAndView("public/support");
+	}
+	
+	@RequestMapping("public/register.do")
+	public ModelAndView register(){
+		return new ModelAndView("public/register");
 	}
 }
