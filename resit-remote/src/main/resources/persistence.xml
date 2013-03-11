@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <!-- this persistence unit is for the web application -->
+    <persistence-unit name="springJpaPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>com.resit.remote.jpa.model.Alert</class>
+		<class>com.resit.remote.jpa.model.Card</class>
+		<class>com.resit.remote.jpa.model.City</class>
+		<class>com.resit.remote.jpa.model.Commerce</class>
+		<class>com.resit.remote.jpa.model.Consumer</class>
+		<class>com.resit.remote.jpa.model.Continent</class>
+		<class>com.resit.remote.jpa.model.Contract</class>
+		<class>com.resit.remote.jpa.model.Country</class>
+		<class>com.resit.remote.jpa.model.Discount</class>
+		<class>com.resit.remote.jpa.model.Message</class>
+		<class>com.resit.remote.jpa.model.Profile</class>
+		<class>com.resit.remote.jpa.model.State</class>
+        <properties>
+        	
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+
+<!-- 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" /> -->
+<!-- 			<property name="hibernate.connection.username" value="resit" /> -->
+<!-- 			<property name="hibernate.connection.password" value="resit1234" /> -->
+<!-- 			<property name="hibernate.connection.url" value="jdbc:mysql://192.168.1.22:3306/resit?autoReconnect=true" /> -->
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.c3p0.min_size" value="5" />
+			<property name="hibernate.c3p0.max_size" value="20" />
+			<property name="hibernate.c3p0.timeout" value="300" />
+			<property name="hibernate.c3p0.max_statements" value="50" />
+			<property name="hibernate.c3p0.idle_test_period" value="3000" />
+             
+             
+			<!--
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+            -->
+            <!-- 
+                value='create' to build a new database on each run;
+                value='update' to modify an existing database;
+                value='create-drop' means the same as 'create' but also drops tables when Hibernate closes;
+                value='validate' makes no changes to the database
+            -->
+            <!-- 
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true" />
+            -->
+         </properties>
+    </persistence-unit>
+</persistence>
