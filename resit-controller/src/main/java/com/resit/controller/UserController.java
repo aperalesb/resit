@@ -39,4 +39,23 @@ public class UserController {
 
 		return resultView;
 	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/public/registerUser.do")
+	public ModelAndView registerUser(HttpServletRequest request, HttpServletResponse response, 
+			@RequestParam(value="user_name", required=true) String userName,
+			@RequestParam(value="user_email", required=true) String userEmail,
+			@RequestParam(value="user_password", required=true) String userPassword
+			) {
+		
+		//TODO Implementar registro
+		
+		ModelAndView resultView = new ModelAndView("public/register");
+		
+//		resultView.addObject("registerOk", Boolean.TRUE);
+		
+		resultView.addObject("registerOk", Boolean.FALSE);
+		resultView.addObject("registerError", "Se ha producido un error en el registro");
+
+		return resultView;
+	}
 }

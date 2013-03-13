@@ -40,12 +40,23 @@ body {
 	<div class="container">
 
 		<form class="form-horizontal" id="registerForm" method='post'
-			action=''>
+			action='<%=request.getContextPath()%>/public/registerUser.do'>
 			<fieldset>
 
-				<!-- 				<div class="alert alert-success">Well done! You successfully -->
-				<!-- 					read this important alert message.</div> -->
-
+				<% 
+				Object result = request.getAttribute("registerOk");
+				Object errorMsg = request.getAttribute("registerError");
+				
+				if (result != null){
+					if ((Boolean)result) {
+						out.println("<div class='alert alert-success'>Well done! You successfully read this important alert message.</div>");
+					}
+					else {
+						out.println("<div class='alert alert-error'>"+(String)errorMsg+".</div>");
+					}
+				}
+				%>
+				
 				<legend>
 					<spring:message code="label.register.title" />
 				</legend>
@@ -67,7 +78,7 @@ body {
 				</div>
 
 				<div class="control-group">
-					<input type="text" class="input-xlarge" id="user_password"
+					<input type="password" class="input-xlarge" id="user_password"
 						name="user_password" rel="popover"
 						data-content="<spring:message code='form.register.popover.body.password' />"
 						data-original-title="<spring:message code='form.register.popover.title.password' />"
