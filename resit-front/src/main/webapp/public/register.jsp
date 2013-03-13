@@ -3,9 +3,6 @@
 <head>
 <meta charset="utf-8">
 <title>Resit</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
 
 <!-- Estilos CSS -->
 <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +36,63 @@ body {
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="../resources/js/jquery.js"></script>
 <script src="../resources/js/bootstrap.min.js"></script>
+<!-- Include Bootstrap Asserts JavaScript Files. -->
+<script type="text/javascript"
+	src="../resources/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// Popover 
+		$('#registerForm input').hover(function() {
+			$(this).popover('show');
+		}, function() {
+			$(this).popover('hide');
+		});
 
+		$("#registerForm").validate({
+			rules : {
+				user_name : "required",
+				user_email : {
+					required : true,
+					email : true
+				},
+				user_password : {
+					required : true,
+					minlength : 6
+				},
+				agree_terms : "required"
+			},
+
+			messages : {
+				user_name : "Enter your first and last name",
+				user_email : {
+					required : "Enter your email address",
+					email : "Enter valid email address"
+				},
+				user_password : {
+					required : "Enter your password",
+					minlength : "Password must be minimum 6 characters"
+				},
+				agree_terms : "You must agree terms & conditions"
+			},
+			errorPlacement: function(error, element) {
+			     if (element.attr("name") == "agree_terms")
+			       error.insertAfter("#agree_label");
+			     else
+			       error.insertAfter(element);
+			   },
+			errorClass : "help-inline",
+			errorElement : "span",
+			highlight : function(element, errorClass, validClass) {
+				$(element).parents('.control-group').addClass('error');
+			},
+			unhighlight : function(element, errorClass, validClass) {
+				$(element).parents('.control-group').removeClass('error');
+				$(element).parents('.control-group').addClass('success');
+			}
+		});
+
+	});
+</script>
 
 </head>
 
@@ -47,60 +100,52 @@ body {
 	<%@include file="../header.jsp"%>
 	<div class="container">
 
-		<form class="form-horizontal" id="registerHere" method='post'
+		<form class="form-horizontal" id="registerForm" method='post'
 			action=''>
 			<fieldset>
-			
-<!-- 				<div class="alert alert-success">Well done! You successfully -->
-<!-- 					read this important alert message.</div> -->
-		
-				<legend><spring:message code="label.register.title" /></legend>
+
+				<!-- 				<div class="alert alert-success">Well done! You successfully -->
+				<!-- 					read this important alert message.</div> -->
+
+				<legend>
+					<spring:message code="label.register.title" />
+				</legend>
 
 				<div class="control-group">
-					<div class="controls">
-						<input type="text" class="input-xlarge" id="user_name"
-							name="user_name" rel="popover"
-							data-content="Enter your first and last name."
-							data-original-title="Full Name"
-							placeholder="<spring:message code="form.register.label.name" />">
-					</div>
+					<input type="text" class="input-xlarge" id="user_name"
+						name="user_name" rel="popover"
+						data-content="Enter your first and last name."
+						data-original-title="Full Name"
+						placeholder="<spring:message code="form.register.label.name" />">
 				</div>
 
 				<div class="control-group">
-					<div class="controls">
-						<input type="text" class="input-xlarge" id="user_email"
-							name="user_email" rel="popover"
-							data-content="What’s your email address?"
-							data-original-title="Email"
-							placeholder="<spring:message code="form.register.label.email" />">
-					</div>
+					<input type="text" class="input-xlarge" id="user_email"
+						name="user_email" rel="popover"
+						data-content="What’s your email address?"
+						data-original-title="Email"
+						placeholder="<spring:message code="form.register.label.email" />">
 				</div>
 
 				<div class="control-group">
-					<div class="controls">
-						<input type="text" class="input-xlarge" id="user_password"
-							name="user_email" rel="popover"
-							data-content="What’s your email address?"
-							data-original-title="Email"
-							placeholder="<spring:message code="form.register.label.password" />">
-					</div>
+					<input type="text" class="input-xlarge" id="user_password"
+						name="user_password" rel="popover"
+						data-content="Choose a password for your account"
+						data-original-title="Password"
+						placeholder="<spring:message code="form.register.label.password" />">
 				</div>
 
 				<div class="control-group">
-					<div class="controls">
-						<input type="check" class="input-xlarge" id="agree_terms"
-							name="agree_terms" rel="popover"
-							data-content="I accept terms & conditions"
-							data-original-title="Terms & Conditions"
-							placeholder="<spring:message code="form.register.check.terms" />">
-					</div>
+					<input id="agree_terms" style="float: left; margin-right: 10px;"
+						type="checkbox" name="agree_terms" value="1" > <label
+						class="input-xlarge" for="agree_terms" id="agree_label"> <a href="#"><spring:message
+								code="form.register.check.terms" /></a></label>
 				</div>
 
 				<div class="control-group">
-					<label class="control-label"></label>
-					<div class="controls">
-						<button type="submit" class="btn btn-success"><spring:message code="form.register.button.create" /></button>
-					</div>
+					<button type="submit" class="btn btn-success">
+						<spring:message code="form.register.button.create" />
+					</button>
 				</div>
 
 			</fieldset>
@@ -109,11 +154,5 @@ body {
 	</div>
 	<%@include file="../footer.jsp"%>
 	<!-- /container -->
-
-	<script type="text/javascript"
-		src="http://jira.4bytes.net/s/es_ES-d25tap/785/3/1.1.2/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=cffdcdce"></script>
-	<script type="text/javascript"
-		src="http://jira.4bytes.net/s/es_ES-d25tap/785/3/1.1.2/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=297bf22b"></script>
-
 </body>
 </html>
