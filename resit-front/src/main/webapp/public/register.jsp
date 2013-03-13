@@ -33,67 +33,6 @@ body {
 <link rel="apple-touch-icon-precomposed"
 	href="ico/apple-touch-icon-57-precomposed.png">
 
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="../resources/js/jquery.js"></script>
-<script src="../resources/js/bootstrap.min.js"></script>
-<!-- Include Bootstrap Asserts JavaScript Files. -->
-<script type="text/javascript"
-	src="../resources/js/jquery.validate.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		// Popover 
-		$('#registerForm input').hover(function() {
-			$(this).popover('show');
-		}, function() {
-			$(this).popover('hide');
-		});
-
-		$("#registerForm").validate({
-			rules : {
-				user_name : "required",
-				user_email : {
-					required : true,
-					email : true
-				},
-				user_password : {
-					required : true,
-					minlength : 6
-				},
-				agree_terms : "required"
-			},
-
-			messages : {
-				user_name : "Enter your first and last name",
-				user_email : {
-					required : "Enter your email address",
-					email : "Enter valid email address"
-				},
-				user_password : {
-					required : "Enter your password",
-					minlength : "Password must be minimum 6 characters"
-				},
-				agree_terms : "You must agree terms & conditions"
-			},
-			errorPlacement: function(error, element) {
-			     if (element.attr("name") == "agree_terms")
-			       error.insertAfter("#agree_label");
-			     else
-			       error.insertAfter(element);
-			   },
-			errorClass : "help-inline",
-			errorElement : "span",
-			highlight : function(element, errorClass, validClass) {
-				$(element).parents('.control-group').addClass('error');
-			},
-			unhighlight : function(element, errorClass, validClass) {
-				$(element).parents('.control-group').removeClass('error');
-				$(element).parents('.control-group').addClass('success');
-			}
-		});
-
-	});
-</script>
-
 </head>
 
 <body>
@@ -114,32 +53,32 @@ body {
 				<div class="control-group">
 					<input type="text" class="input-xlarge" id="user_name"
 						name="user_name" rel="popover"
-						data-content="Enter your first and last name."
-						data-original-title="Full Name"
+						data-content="<spring:message code='form.register.popover.body.name' />"
+						data-original-title="<spring:message code='form.register.popover.title.name' />"
 						placeholder="<spring:message code="form.register.label.name" />">
 				</div>
 
 				<div class="control-group">
 					<input type="text" class="input-xlarge" id="user_email"
 						name="user_email" rel="popover"
-						data-content="What’s your email address?"
-						data-original-title="Email"
+						data-content="<spring:message code='form.register.popover.body.email' />"
+						data-original-title="<spring:message code='form.register.popover.title.email' />"
 						placeholder="<spring:message code="form.register.label.email" />">
 				</div>
 
 				<div class="control-group">
 					<input type="text" class="input-xlarge" id="user_password"
 						name="user_password" rel="popover"
-						data-content="Choose a password for your account"
-						data-original-title="Password"
+						data-content="<spring:message code='form.register.popover.body.password' />"
+						data-original-title="<spring:message code='form.register.popover.title.password' />"
 						placeholder="<spring:message code="form.register.label.password" />">
 				</div>
 
 				<div class="control-group">
 					<input id="agree_terms" style="float: left; margin-right: 10px;"
-						type="checkbox" name="agree_terms" value="1" > <label
-						class="input-xlarge" for="agree_terms" id="agree_label"> <a href="#"><spring:message
-								code="form.register.check.terms" /></a></label>
+						type="checkbox" name="agree_terms" value="1"> <label
+						class="input-xlarge" for="agree_terms" id="agree_label"> <a
+						href="#"><spring:message code="form.register.check.terms" /></a></label>
 				</div>
 
 				<div class="control-group">
@@ -154,5 +93,83 @@ body {
 	</div>
 	<%@include file="../footer.jsp"%>
 	<!-- /container -->
+
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="../resources/js/jquery.js"></script>
+	<script src="../resources/js/bootstrap.min.js"></script>
+	<!-- Include Bootstrap Asserts JavaScript Files. -->
+	<script type="text/javascript"
+		src="../resources/js/jquery.validate.min.js"></script>
+	<script type="text/javascript">
+		$(document)
+				.ready(
+						function() {
+							// Popover 
+							$('#registerForm input').hover(function() {
+								$(this).popover('show');
+							}, function() {
+								$(this).popover('hide');
+							});
+
+							$("#registerForm")
+									.validate(
+											{
+												rules : {
+													user_name : "required",
+													user_email : {
+														required : true,
+														email : true
+													},
+													user_password : {
+														required : true,
+														minlength : 6
+													},
+													agree_terms : "required"
+												},
+
+												messages : {
+													user_name : "<spring:message code='form.register.error.name' />",
+													user_email : {
+														required : "<spring:message code='form.register.error.required.email' />",
+														email : "<spring:message code='form.register.error.valid.email' />"
+													},
+													user_password : {
+														required : "<spring:message code='form.register.error.required.password' />",
+														minlength : "<spring:message code='form.register.error.valid.password' />"
+													},
+													agree_terms : "<spring:message code='form.register.error.terms' />"
+												},
+												errorPlacement : function(
+														error, element) {
+													if (element.attr("name") == "agree_terms")
+														error
+																.insertAfter("#agree_label");
+													else
+														error
+																.insertAfter(element);
+												},
+												errorClass : "help-inline",
+												errorElement : "span",
+												highlight : function(element,
+														errorClass, validClass) {
+													$(element).parents(
+															'.control-group')
+															.addClass('error');
+												},
+												unhighlight : function(element,
+														errorClass, validClass) {
+													$(element).parents(
+															'.control-group')
+															.removeClass(
+																	'error');
+													$(element)
+															.parents(
+																	'.control-group')
+															.addClass('success');
+												}
+											});
+
+						});
+	</script>
 </body>
 </html>
